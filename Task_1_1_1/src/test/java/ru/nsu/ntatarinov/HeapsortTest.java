@@ -46,9 +46,9 @@ public class HeapsortTest {
     @Test
     void testBigSize() {
         Random rd = new Random();
-        int[] array = new int[100000000];
-        int[] result = new int[100000000];
-        for (int i = 0; i < 100000000; i++) {
+        int[] array = new int[10000000];
+        int[] result = new int[10000000];
+        for (int i = 0; i < 10000000; i++) {
             array[i] = rd.nextInt();
             result[i] = array[i];
         }
