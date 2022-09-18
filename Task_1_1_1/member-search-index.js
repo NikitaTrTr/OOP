@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"ru.nsu.ntatarinov","c":"Heapsort","l":"Heapsort(int[])","url":"%3Cinit%3E(int[])"},{"p":"ru.nsu.ntatarinov","c":"Heapsort","l":"sort()"}]
+memberSearchIndex = [{"p":"ru.nsu.ntatarinov","c":"Heapsort","l":"Heapsort()","url":"%3Cinit%3E()"},{"p":"ru.nsu.ntatarinov","c":"Heapsort","l":"sort(int[])"}]

@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":9};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -152,10 +152,8 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int%5B%5D)">Heapsort</a></span>&#8203;(int[]&nbsp;array)</code></th>
-<td class="colLast">
-<div class="block">method for building heapsort object.</div>
-</td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">Heapsort</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -169,15 +167,15 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>int[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sort()">sort</a></span>()</code></th>
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sort(int%5B%5D)">sort</a></span>&#8203;(int[]&nbsp;array)</code></th>
 <td class="colLast">
 <div class="block">sorts array from which heap was built.</div>
 </td>
@@ -206,18 +204,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(int[])">
+<a id="&lt;init&gt;()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Heapsort</h4>
-<pre>public&nbsp;Heapsort&#8203;(int[]&nbsp;array)</pre>
-<div class="block">method for building heapsort object.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>array</code> - array you want to sort</dd>
-</dl>
+<pre>public&nbsp;Heapsort()</pre>
 </li>
 </ul>
 </li>
@@ -230,17 +223,17 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="sort()">
+<a id="sort(int[])">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>sort</h4>
-<pre class="methodSignature">public&nbsp;int[]&nbsp;sort()</pre>
+<pre class="methodSignature">public static&nbsp;void&nbsp;sort&#8203;(int[]&nbsp;array)</pre>
 <div class="block">sorts array from which heap was built.</div>
 <dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>sorted array</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>array</code> - array to sort</dd>
 </dl>
 </li>
 </ul>
