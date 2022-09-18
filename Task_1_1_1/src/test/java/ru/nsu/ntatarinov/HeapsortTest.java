@@ -7,7 +7,7 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 /**
- *  Different tests for heapsort
+ * Different tests for heapsort.
  */
 public class HeapsortTest {
 
