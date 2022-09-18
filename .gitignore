@@ -129,3 +129,6 @@ fabric.properties
 
 ### Intellij+all Patch ###
 .idea/
+/.idea/
+
+/Task_1_1_1/.idea/
