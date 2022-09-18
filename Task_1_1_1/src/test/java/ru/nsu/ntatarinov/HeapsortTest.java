@@ -20,7 +20,7 @@ public class HeapsortTest {
     }
 
     @Test
-    void testSinglElement() {
+    void testSingleElement() {
         int[] array = {5};
         int[] result = {5};
         Heapsort.sort(array);
@@ -46,9 +46,9 @@ public class HeapsortTest {
     @Test
     void testBigSize() {
         Random rd = new Random();
-        int[] array = new int[1000000];
-        int[] result = new int[1000000];
-        for (int i = 0; i < 1000000; i++) {
+        int[] array = new int[100000000];
+        int[] result = new int[100000000];
+        for (int i = 0; i < 100000000; i++) {
             array[i] = rd.nextInt();
             result[i] = array[i];
         }
