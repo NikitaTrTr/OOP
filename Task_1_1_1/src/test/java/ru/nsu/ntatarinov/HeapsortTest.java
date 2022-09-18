@@ -15,32 +15,32 @@ public class HeapsortTest {
     void testEmpty() {
         int[] array = {};
         int[] result = {};
-        Heapsort heap = new Heapsort(array);
-        assertArrayEquals(result, heap.sort());
+        Heapsort.sort(array);
+        assertArrayEquals(result, array);
     }
 
     @Test
     void testSinglElement() {
         int[] array = {5};
         int[] result = {5};
-        Heapsort heap = new Heapsort(array);
-        assertArrayEquals(result, heap.sort());
+        Heapsort.sort(array);
+        assertArrayEquals(result, array);
     }
 
     @Test
     void testSorted() {
         int[] array = {1, 2, 3, 4, 5};
         int[] result = {1, 2, 3, 4, 5};
-        Heapsort heap = new Heapsort(array);
-        assertArrayEquals(result, heap.sort());
+        Heapsort.sort(array);
+        assertArrayEquals(result, array);
     }
 
     @Test
     void testReversedSorted() {
         int[] array = {5, 4, 3, 2, 1};
         int[] result = {1, 2, 3, 4, 5};
-        Heapsort heap = new Heapsort(array);
-        assertArrayEquals(result, heap.sort());
+        Heapsort.sort(array);
+        assertArrayEquals(result, array);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class HeapsortTest {
             result[i] = array[i];
         }
         Arrays.sort(result);
-        Heapsort heap = new Heapsort(array);
-        assertArrayEquals(result, heap.sort());
+        Heapsort.sort(array);
+        assertArrayEquals(result, array);
     }
 }
