@@ -93,12 +93,14 @@ public class StackTest {
         assertEquals(9, popStack.pop());
         assertEquals(3, popStack.pop());
     }
+
     @Test
     void pushNullTest() {
         Stack<Integer> stack = new Stack<>();
         assertThrows(NullPointerException.class, () -> stack.push(null));
         assertThrows(NullPointerException.class, () -> stack.pushStack(null));
     }
+
     @Test
     void popFromEmptyStackTest() {
         Stack<Integer> stack = new Stack<>();

@@ -30,7 +30,7 @@ public class Stack<T> {
      */
     @SuppressWarnings("unchecked")
     public void push(T element) {
-        if (element == null){
+        if (element == null) {
             throw new NullPointerException("Can't push null pointed object");
         }
         if (currentSize == capacity) {
@@ -49,10 +49,10 @@ public class Stack<T> {
      */
     @SuppressWarnings("unchecked")
     public T pop() {
-        if (currentSize==0){
+        if (currentSize == 0) {
             throw new EmptyStackException();
         }
-        if (currentSize<=capacity/2){
+        if (currentSize <= capacity / 2) {
             this.capacity = currentSize;
             T[] lessStack = (T[]) new Object[capacity];
             System.arraycopy(stack, 0, lessStack, 0, currentSize);
@@ -68,7 +68,7 @@ public class Stack<T> {
      * @param oldStack stack from which you want to add elements
      */
     public void pushStack(Stack<T> oldStack) {
-        if (oldStack == null){
+        if (oldStack == null) {
             throw new NullPointerException("Can't push null pointed object");
         }
         for (int i = 0; i < oldStack.count(); i++) {
@@ -84,7 +84,7 @@ public class Stack<T> {
      */
     @SuppressWarnings("unchecked")
     public Stack<T> popStack(int num) {
-        if (currentSize<num){
+        if (currentSize < num) {
             throw new EmptyStackException();
         }
         this.currentSize -= num;
@@ -92,7 +92,7 @@ public class Stack<T> {
         for (int i = 0; i < num; i++) {
             newStack.push(this.stack[this.currentSize + i]);
         }
-        if (currentSize<=capacity/2){
+        if (currentSize <= capacity / 2) {
             this.capacity = currentSize;
             T[] lessStack = (T[]) new Object[capacity];
             System.arraycopy(stack, 0, lessStack, 0, currentSize);
