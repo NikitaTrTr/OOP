@@ -6,17 +6,17 @@ import java.util.ArrayList;
 public class Tree<E> {
     private E value;
     private final ArrayList<Tree<E>> sons;
-    public Tree(){
+    public Tree(){ //создает пустое дерево
         this.value = null;
         this.sons =  new ArrayList<>();
     }
 
-    public Tree(E value){
+    public Tree(E value){// создает пустое дерево с инициализированным корнем
         this.value = value;
         this.sons =  new ArrayList<>();
     }
 
-    public Tree<E> add(E node){
+    public Tree<E> add(E node){//добавляет ноду в сыновья, если корень проинициализирован, иначе заполняет нодой корень
         if (value == null){
             this.value = node;
             return this;
@@ -27,7 +27,7 @@ public class Tree<E> {
             return newSon;
         }
     }
-    public Tree<E> add(Tree<E> tree, E node){
+    public Tree<E> add(Tree<E> tree, E node){//добавляет ноду в поддерево tree
         Tree<E> addedNode = null;
         Tree<E> son;
         if (tree==this){
@@ -44,7 +44,7 @@ public class Tree<E> {
             return addedNode;
         }
     }
-    public boolean remove(Tree<E> tree){
+    public boolean remove(Tree<E> tree){//удаляет поддерево tree
         if (sons.contains(tree)){
             sons.remove(tree);
             return true;
@@ -64,7 +64,7 @@ public class Tree<E> {
     public E value(){
         return value;
     }
-    public ArrayList<E> sonsValues(){
+    public ArrayList<E> sonsValues(){// список корневых значений всех сыновей
         ArrayList<E> values = new ArrayList<>();
         for (Tree<E> son : sons) {
             values.add(son.value());
