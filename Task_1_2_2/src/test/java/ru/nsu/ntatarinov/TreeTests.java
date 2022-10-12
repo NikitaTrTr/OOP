@@ -43,18 +43,21 @@ public class TreeTests {
     @Test
     void addToSubtreeTest() {
         Tree<String> treeA = new Tree<>("A");
+        Tree<String> treeX = new Tree<>("X");
         Tree<String> treeB = treeA.add("B");
         treeB.add("C");
         treeA.add(treeB, "D");
+        treeA.add(treeA, "G");
         ArrayList<String> list = new ArrayList<>();
         list.add("C");
         list.add("D");
 
         assertEquals(treeB.sonsValues(), list);
+        assertEquals(treeA.add(treeX, "M"), null);
     }
 
     @Test
-    void getParentTest() {
+    void getNodeByValueTest() {
         Tree<String> treeA = new Tree<>("A");
         treeA.add("B");
         Tree<String> treeC = treeA.add("C");
@@ -65,7 +68,17 @@ public class TreeTests {
     }
 
     @Test
-    void bfsIteratorTest(){
+    void getParentTest() {
+        Tree<String> treeA = new Tree<>("A");
+        Tree<String> treeB = treeA.add("B");
+
+        assertEquals(treeB.getParent(), treeA);
+
+    }
+
+
+    @Test
+    void bfsIteratorTest() {
         Tree<String> treeA = new Tree<>("A");
         treeA.add("B");
         treeA.add("C");
@@ -75,15 +88,16 @@ public class TreeTests {
         treeD.add("G");
         treeE.add("H");
         treeE.add("K");
-        String[] array = {"A","B","C","D","E","F","G","H","K"};
+        String[] array = {"A", "B", "C", "D", "E", "F", "G", "H", "K"};
         Iterator<String> iter = treeA.bfsIterator();
         for (String s : array) {
+            assertEquals(iter.hasNext(), true);
             assertEquals(iter.next(), s);
         }
     }
 
     @Test
-    void dfsIteratorTest(){
+    void dfsIteratorTest() {
         Tree<String> treeA = new Tree<>("A");
         treeA.add("B");
         treeA.add("C");
@@ -93,11 +107,23 @@ public class TreeTests {
         treeD.add("G");
         treeE.add("H");
         treeE.add("K");
-        String[] array = {"A","B","C","D","E","H","K","F","G"};
+        String[] array = {"A", "B", "C", "D", "E", "H", "K", "F", "G"};
         Iterator<String> iter = treeA.dfsIterator();
         for (String s : array) {
+            assertEquals(iter.hasNext(), true);
             assertEquals(iter.next(), s);
         }
+    }
+
+    @Test
+    void removeTest() {
+        Tree<String> treeA = new Tree<>("A");
+        Tree<String> treeB = treeA.add("B");
+        Tree<String> treeC = treeB.add("C");
+        treeA.remove(treeC);
+        assertEquals(treeB.size(), 0);
+        treeA.remove(treeB);
+        assertEquals(treeA.size(), 0);
     }
 
 
