@@ -2,41 +2,48 @@ package ru.nsu.ntatarinov;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class Tree<E> {
+public class Tree<E> implements Iterable<E> {
+
     private E value;
+    private Tree<E> parent;
     private final ArrayList<Tree<E>> sons;
-    public Tree(){ //создает пустое дерево
+
+    public Tree() { //создает пустое дерево
         this.value = null;
-        this.sons =  new ArrayList<>();
+        this.sons = new ArrayList<>();
+        this.parent = null;
     }
 
-    public Tree(E value){// создает пустое дерево с инициализированным корнем
+    public Tree(E value) {// создает пустое дерево с инициализированным корнем
         this.value = value;
-        this.sons =  new ArrayList<>();
+        this.sons = new ArrayList<>();
+        this.parent = null;
     }
 
-    public Tree<E> add(E node){//добавляет ноду в сыновья, если корень проинициализирован, иначе заполняет нодой корень
-        if (value == null){
-            this.value = node;
+    public Tree<E> add(
+        E value) {//добавляет ноду в сыновья, если корень проинициализирован, иначе заполняет нодой корень
+        if (this.value == null) {
+            this.value = value;
             return this;
-        }
-        else{
-            Tree<E> newSon = new Tree<>(node);
+        } else {
+            Tree<E> newSon = new Tree<>(value);
+            newSon.parent = this;
             sons.add(newSon);
             return newSon;
         }
     }
-    public Tree<E> add(Tree<E> tree, E node){//добавляет ноду в поддерево tree
+
+    public Tree<E> add(Tree<E> tree, E value) {//добавляет ноду в поддерево tree
         Tree<E> addedNode = null;
         Tree<E> son;
-        if (tree==this){
-            return this.add(node);
-        }
-        else{
+        if (tree == this) {
+            return this.add(value);
+        } else {
             for (Tree<E> eTree : sons) {
                 son = eTree;
-                addedNode = son.add(tree, node);
+                addedNode = son.add(tree, value);
                 if (addedNode != null) {
                     break;
                 }
@@ -44,31 +51,75 @@ public class Tree<E> {
             return addedNode;
         }
     }
-    public boolean remove(Tree<E> tree){//удаляет поддерево tree
-        if (sons.contains(tree)){
+
+    public boolean remove(Tree<E> tree) {//удаляет поддерево tree
+        if (sons.contains(tree)) {
             sons.remove(tree);
             return true;
-        }
-        else {
-            for (Tree<E> eTree : sons){
-                if (eTree.remove(tree)){
+        } else {
+            for (Tree<E> eTree : sons) {
+                if (eTree.remove(tree)) {
                     return true;
                 }
             }
             return false;
         }
     }
-    public int size(){
+
+    public Tree<E> getNodeByValue(E value) {
+        if (this.sonsValues().contains(value)) {
+            int ind = this.sonsValues().indexOf(value);
+            return sons.get(ind);
+        } else {
+            for (Tree<E> son : sons) {
+                Tree<E> node = son.getNodeByValue(value);
+                if (node != null) {
+                    return node;
+                }
+            }
+            return null;
+        }
+    }
+
+    public int size() {
         return sons.size();
     }
-    public E value(){
+
+    public Tree<E> getParent() {
+        return this.parent;
+    }
+
+    public E value() {
         return value;
     }
-    public ArrayList<E> sonsValues(){// список корневых значений всех сыновей
+
+    public ArrayList<E> sonsValues() {// список корневых значений всех сыновей
         ArrayList<E> values = new ArrayList<>();
         for (Tree<E> son : sons) {
             values.add(son.value());
         }
         return values;
+    }
+
+    public ArrayList<Tree<E>> getSons() {
+        return this.sons;
+    }
+
+    private String typeOfIterator;
+
+    public Iterator<E> dfsIterator() {
+        this.typeOfIterator = "DFS";
+        return this.iterator();
+    }
+
+    public Iterator<E> bfsIterator() {
+        this.typeOfIterator = "BFS";
+        return this.iterator();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public Iterator<E> iterator() {
+        return (Iterator<E>) new treeIterator<>(this, typeOfIterator);
     }
 }
