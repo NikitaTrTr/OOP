@@ -16,14 +16,13 @@ public class Tree<E> implements Iterable<E> {
         this.parent = null;
     }
 
-    public Tree(E value) {// создает пустое дерево с инициализированным корнем
+    public Tree(E value) {
         this.value = value;
         this.sons = new ArrayList<>();
         this.parent = null;
     }
 
-    public Tree<E> add(
-        E value) {//добавляет ноду в сыновья, если корень проинициализирован, иначе заполняет нодой корень
+    public Tree<E> add(E value) {
         if (this.value == null) {
             this.value = value;
             return this;
@@ -35,14 +34,14 @@ public class Tree<E> implements Iterable<E> {
         }
     }
 
-    public Tree<E> add(Tree<E> tree, E value) {//добавляет ноду в поддерево tree
+    public Tree<E> add(Tree<E> tree, E value) {
         Tree<E> addedNode = null;
         Tree<E> son;
         if (tree == this) {
             return this.add(value);
         } else {
-            for (Tree<E> eTree : sons) {
-                son = eTree;
+            for (Tree<E> etree : sons) {
+                son = etree;
                 addedNode = son.add(tree, value);
                 if (addedNode != null) {
                     break;
@@ -52,13 +51,13 @@ public class Tree<E> implements Iterable<E> {
         }
     }
 
-    public boolean remove(Tree<E> tree) {//удаляет поддерево tree
+    public boolean remove(Tree<E> tree) {
         if (sons.contains(tree)) {
             sons.remove(tree);
             return true;
         } else {
-            for (Tree<E> eTree : sons) {
-                if (eTree.remove(tree)) {
+            for (Tree<E> etree : sons) {
+                if (etree.remove(tree)) {
                     return true;
                 }
             }
@@ -93,7 +92,7 @@ public class Tree<E> implements Iterable<E> {
         return value;
     }
 
-    public ArrayList<E> sonsValues() {// список корневых значений всех сыновей
+    public ArrayList<E> sonsValues() {
         ArrayList<E> values = new ArrayList<>();
         for (Tree<E> son : sons) {
             values.add(son.value());
@@ -120,6 +119,6 @@ public class Tree<E> implements Iterable<E> {
     @SuppressWarnings("unchecked")
     @Override
     public Iterator<E> iterator() {
-        return (Iterator<E>) new treeIterator<>(this, typeOfIterator);
+        return (Iterator<E>) new TreeIterator<>(this, typeOfIterator);
     }
 }

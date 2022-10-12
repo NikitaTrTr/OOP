@@ -3,12 +3,12 @@ package ru.nsu.ntatarinov;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class treeIterator<E> implements Iterator {
+public class TreeIterator<E> implements Iterator {
 
     private ArrayList<E> nodes;
     int pointer;
 
-    public treeIterator(Tree<E> tree, String type) {
+    public TreeIterator(Tree<E> tree, String type) {
         nodes = new ArrayList<>();
         pointer = 0;
         if (type.equals("DFS")) {
