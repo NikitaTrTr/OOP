@@ -8,6 +8,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import org.junit.jupiter.api.Test;
 
+/**
+ * some simple tests for Tree collection
+ */
 public class TreeTests {
 
     @Test
@@ -43,7 +46,6 @@ public class TreeTests {
     @Test
     void addToSubtreeTest() {
         Tree<String> treeA = new Tree<>("A");
-        Tree<String> treeX = new Tree<>("X");
         Tree<String> treeB = treeA.add("B");
         treeB.add("C");
         treeA.add(treeB, "D");
@@ -51,7 +53,7 @@ public class TreeTests {
         ArrayList<String> list = new ArrayList<>();
         list.add("C");
         list.add("D");
-
+        Tree<String> treeX = new Tree<>("X");
         assertEquals(treeB.sonsValues(), list);
         assertEquals(treeA.add(treeX, "M"), null);
     }
