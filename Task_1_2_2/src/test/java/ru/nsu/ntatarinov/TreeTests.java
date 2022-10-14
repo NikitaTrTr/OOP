@@ -9,7 +9,7 @@ import java.util.Iterator;
 import org.junit.jupiter.api.Test;
 
 /**
- * some simple tests for Tree collection
+ * some simple tests for Tree collection.
  */
 public class TreeTests {
 
