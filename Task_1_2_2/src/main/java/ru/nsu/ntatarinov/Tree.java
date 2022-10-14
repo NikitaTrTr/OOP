@@ -191,6 +191,7 @@ public class Tree<E> implements Iterable<E> {
         this.typeOfIterator = "DFS";
         return this.iterator();
     }
+
     /**
      * returns an iterator with the bfs traversal type.
      *
@@ -202,7 +203,7 @@ public class Tree<E> implements Iterable<E> {
     }
 
     /**
-     * iterator for tree
+     * iterator for tree.
      *
      * @return Iterator object
      */
