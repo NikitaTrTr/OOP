@@ -129,6 +129,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>E</code> - type of objects in nodes of tree</dd>
+</dl>
+<dl>
 <dt>All Implemented Interfaces:</dt>
 <dd><code>java.util.Iterator</code></dd>
 </dl>
@@ -136,6 +140,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">TreeIterator&lt;E&gt;</span>
 extends java.lang.Object
 implements java.util.Iterator</pre>
+<div class="block">Iterator class for Tree collection.</div>
 </li>
 </ul>
 </div>
@@ -158,7 +163,9 @@ implements java.util.Iterator</pre>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(ru.nsu.ntatarinov.Tree,java.lang.String)">TreeIterator</a></span>&#8203;(<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="TreeIterator.html" title="type parameter in TreeIterator">E</a>&gt;&nbsp;tree,
             java.lang.String&nbsp;type)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">constructs an Iterator, fills nodes list.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -181,12 +188,16 @@ implements java.util.Iterator</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasNext()">hasNext</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">checks if next element exist.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="TreeIterator.html" title="type parameter in TreeIterator">E</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#next()">next</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">returns next element.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -227,6 +238,12 @@ implements java.util.Iterator</pre>
 <h4>TreeIterator</h4>
 <pre>public&nbsp;TreeIterator&#8203;(<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="TreeIterator.html" title="type parameter in TreeIterator">E</a>&gt;&nbsp;tree,
                     java.lang.String&nbsp;type)</pre>
+<div class="block">constructs an Iterator, fills nodes list.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>tree</code> - Iterated tree</dd>
+<dd><code>type</code> - of traversal</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -246,9 +263,12 @@ implements java.util.Iterator</pre>
 <li class="blockList">
 <h4>hasNext</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;hasNext()</pre>
+<div class="block">checks if next element exist.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>hasNext</code>&nbsp;in interface&nbsp;<code>java.util.Iterator&lt;<a href="TreeIterator.html" title="type parameter in TreeIterator">E</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true/false if next element exists or not</dd>
 </dl>
 </li>
 </ul>
@@ -259,9 +279,12 @@ implements java.util.Iterator</pre>
 <li class="blockList">
 <h4>next</h4>
 <pre class="methodSignature">public&nbsp;<a href="TreeIterator.html" title="type parameter in TreeIterator">E</a>&nbsp;next()</pre>
+<div class="block">returns next element.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>next</code>&nbsp;in interface&nbsp;<code>java.util.Iterator&lt;<a href="TreeIterator.html" title="type parameter in TreeIterator">E</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>next element</dd>
 </dl>
 </li>
 </ul>

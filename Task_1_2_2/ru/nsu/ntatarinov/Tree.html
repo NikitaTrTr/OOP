@@ -129,6 +129,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>E</code> - type of elements tree contains</dd>
+</dl>
+<dl>
 <dt>All Implemented Interfaces:</dt>
 <dd><code>java.lang.Iterable&lt;E&gt;</code></dd>
 </dl>
@@ -136,6 +140,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">Tree&lt;E&gt;</span>
 extends java.lang.Object
 implements java.lang.Iterable&lt;E&gt;</pre>
+<div class="block">My tree collection implementation.</div>
 </li>
 </ul>
 </div>
@@ -157,11 +162,15 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">Tree</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">builds an empty tree with null value.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(E)">Tree</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">build a tree with values equal to value argument.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -184,63 +193,87 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(E)">add</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add node to sons with value equal value.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(ru.nsu.ntatarinov.Tree,E)">add</a></span>&#8203;(<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;tree,
    <a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">add node with value equal value to subtree equal tree.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bfsIterator()">bfsIterator</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">returns an iterator with the bfs traversal type.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dfsIterator()">dfsIterator</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">returns an iterator with the dfs traversal type.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNodeByValue(E)">getNodeByValue</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">method to get a node with value equal value.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParent()">getParent</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">returns a parent of current subtree, else null if current node is a root.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSons()">getSons</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">list of son nodes.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#iterator()">iterator</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">iterator for tree</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(ru.nsu.ntatarinov.Tree)">remove</a></span>&#8203;(<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;tree)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">removes a subtree equal to tree.</div>
+</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#size()">size</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">returns size of tree.</div>
+</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sonsValues()">sonsValues</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">list of values of son nodes.</div>
+</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="Tree.html" title="type parameter in Tree">E</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#value()">value</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">value stored in value field.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -280,6 +313,7 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>Tree</h4>
 <pre>public&nbsp;Tree()</pre>
+<div class="block">builds an empty tree with null value.</div>
 </li>
 </ul>
 <a id="&lt;init&gt;(java.lang.Object)">
@@ -291,6 +325,11 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>Tree</h4>
 <pre>public&nbsp;Tree&#8203;(<a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value)</pre>
+<div class="block">build a tree with values equal to value argument.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - value in node</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -312,6 +351,14 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>add</h4>
 <pre class="methodSignature">public&nbsp;<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;add&#8203;(<a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value)</pre>
+<div class="block">Add node to sons with value equal value.
+ if current tree doesn't contain any value add method stores value to this.value</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - value you want to save in new node</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>link to a created subtree</dd>
+</dl>
 </li>
 </ul>
 <a id="add(ru.nsu.ntatarinov.Tree,java.lang.Object)">
@@ -324,6 +371,14 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <h4>add</h4>
 <pre class="methodSignature">public&nbsp;<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;add&#8203;(<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;tree,
                    <a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value)</pre>
+<div class="block">add node with value equal value to subtree equal tree.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>tree</code> - subtree in which you want to add a node</dd>
+<dd><code>value</code> - a value of a new node</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if subtree equal to tree wasn't found, else link to added node</dd>
+</dl>
 </li>
 </ul>
 <a id="remove(ru.nsu.ntatarinov.Tree)">
@@ -333,6 +388,13 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>remove</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;remove&#8203;(<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;tree)</pre>
+<div class="block">removes a subtree equal to tree.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>tree</code> - link to tree you want to remove</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if removing is successful and false if such subtree wasn't found</dd>
+</dl>
 </li>
 </ul>
 <a id="getNodeByValue(java.lang.Object)">
@@ -344,6 +406,13 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>getNodeByValue</h4>
 <pre class="methodSignature">public&nbsp;<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;getNodeByValue&#8203;(<a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value)</pre>
+<div class="block">method to get a node with value equal value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - value of node, which you want to receive</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>link to a found node or null if node wasn't found</dd>
+</dl>
 </li>
 </ul>
 <a id="size()">
@@ -353,6 +422,11 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>size</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;size()</pre>
+<div class="block">returns size of tree.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>size of tree</dd>
+</dl>
 </li>
 </ul>
 <a id="getParent()">
@@ -362,6 +436,11 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>getParent</h4>
 <pre class="methodSignature">public&nbsp;<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;getParent()</pre>
+<div class="block">returns a parent of current subtree, else null if current node is a root.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>parent of a node</dd>
+</dl>
 </li>
 </ul>
 <a id="value()">
@@ -371,6 +450,11 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>value</h4>
 <pre class="methodSignature">public&nbsp;<a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value()</pre>
+<div class="block">value stored in value field.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>value stored in value field</dd>
+</dl>
 </li>
 </ul>
 <a id="sonsValues()">
@@ -380,6 +464,11 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>sonsValues</h4>
 <pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;sonsValues()</pre>
+<div class="block">list of values of son nodes.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of values of son nodes</dd>
+</dl>
 </li>
 </ul>
 <a id="getSons()">
@@ -389,6 +478,11 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>getSons</h4>
 <pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&gt;&nbsp;getSons()</pre>
+<div class="block">list of son nodes.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of son nodes</dd>
+</dl>
 </li>
 </ul>
 <a id="dfsIterator()">
@@ -398,6 +492,11 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>dfsIterator</h4>
 <pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;dfsIterator()</pre>
+<div class="block">returns an iterator with the dfs traversal type.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>iterator with the dfs traversal type</dd>
+</dl>
 </li>
 </ul>
 <a id="bfsIterator()">
@@ -407,6 +506,11 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>bfsIterator</h4>
 <pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;bfsIterator()</pre>
+<div class="block">returns an iterator with the bfs traversal type.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>iterator with the bfs traversal type</dd>
+</dl>
 </li>
 </ul>
 <a id="iterator()">
@@ -416,9 +520,12 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>iterator</h4>
 <pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;iterator()</pre>
+<div class="block">iterator for tree</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>iterator</code>&nbsp;in interface&nbsp;<code>java.lang.Iterable&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Iterator object</dd>
 </dl>
 </li>
 </ul>
