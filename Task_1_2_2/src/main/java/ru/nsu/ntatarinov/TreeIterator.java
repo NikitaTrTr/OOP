@@ -1,23 +1,28 @@
 package ru.nsu.ntatarinov;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import ru.nsu.ntatarinov.Tree.TypeOfIterator;
 
 /**
  * Iterator class for Tree collection.
  *
  * @param <E> type of objects in nodes of tree
  */
-public class TreeIterator<E> implements Iterator {
+public class TreeIterator<E> implements Iterator<E> {
 
     /**
-     * list of all nodes in tree.
+     * list of nodes in tree.
      */
-    private final ArrayList<E> nodes;
+    private final ArrayList<Tree<E>> nodes;
     /**
      * pointer for next and hasNext method.
      */
-    int pointer;
+
+    Tree.TypeOfIterator type;
+    private final int numOfOperations;
+    private final Tree<E> root;
 
     /**
      * constructs an Iterator, fills nodes list.
@@ -25,43 +30,12 @@ public class TreeIterator<E> implements Iterator {
      * @param tree Iterated tree
      * @param type of traversal
      */
-    public TreeIterator(Tree<E> tree, String type) {
-        nodes = new ArrayList<>();
-        pointer = 0;
-        if (type.equals("DFS")) {
-            dfs(tree);
-        } else {
-            bfs(tree);
-        }
-    }
-
-    /**
-     * fills nodes list by dfs traversal.
-     *
-     * @param tree iterated tree
-     */
-    private void dfs(Tree<E> tree) {
-        nodes.add(tree.value());
-        for (int i = 0; i < tree.getSons().size(); i++) {
-            dfs(tree.getSons().get(i));
-        }
-    }
-
-    /**
-     * fills nodes list by bfs traversal.
-     *
-     * @param tree iterated tree
-     */
-    private void bfs(Tree<E> tree) {
-        Tree<E> currentNode;
-        ArrayList<Tree<E>> queue = new ArrayList<>();
-        queue.add(tree);
-        while (!queue.isEmpty()) {
-            currentNode = queue.get(0);
-            nodes.add(currentNode.value());
-            queue.remove(0);
-            queue.addAll(currentNode.getSons());
-        }
+    public TreeIterator(Tree<E> tree, Tree.TypeOfIterator type) {
+        this.nodes = new ArrayList<>();
+        this.type = type;
+        nodes.add(tree);
+        this.root = tree;
+        this.numOfOperations = tree.numOfOperations;
     }
 
     /**
@@ -71,16 +45,32 @@ public class TreeIterator<E> implements Iterator {
      */
     @Override
     public boolean hasNext() {
-        return pointer <= nodes.size() - 1;
+        if (root.numOfOperations > this.numOfOperations) {
+            throw new ConcurrentModificationException();
+        }
+        return nodes.size() != 0;
     }
+
     /**
      * returns next element.
      *
      * @return next element
      */
-
     @Override
     public E next() {
-        return nodes.get(pointer++);
+        if (root.numOfOperations > this.numOfOperations) {
+            throw new ConcurrentModificationException();
+        }
+        if (type == Tree.TypeOfIterator.DFS) {
+            Tree<E> currentNode = nodes.get(0);
+            nodes.remove(0);
+            nodes.addAll(0, currentNode.getSons());
+            return currentNode.value();
+        } else {
+            Tree<E> currentNode = nodes.get(0);
+            nodes.remove(0);
+            nodes.addAll(currentNode.getSons());
+            return currentNode.value();
+        }
     }
 }

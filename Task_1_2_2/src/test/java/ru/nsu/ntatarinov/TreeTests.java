@@ -1,10 +1,10 @@
 package ru.nsu.ntatarinov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.ConcurrentModificationException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Iterator;
 import org.junit.jupiter.api.Test;
 
@@ -91,7 +91,7 @@ public class TreeTests {
         treeE.add("H");
         treeE.add("K");
         String[] array = {"A", "B", "C", "D", "E", "F", "G", "H", "K"};
-        Iterator<String> iter = treeA.bfsIterator();
+        Iterator<String> iter = treeA.iterator(Tree.TypeOfIterator.BFS);
         for (String s : array) {
             assertEquals(iter.hasNext(), true);
             assertEquals(iter.next(), s);
@@ -110,11 +110,22 @@ public class TreeTests {
         treeE.add("H");
         treeE.add("K");
         String[] array = {"A", "B", "C", "D", "E", "H", "K", "F", "G"};
-        Iterator<String> iter = treeA.dfsIterator();
+        Iterator<String> iter = treeA.iterator(Tree.TypeOfIterator.DFS);
         for (String s : array) {
             assertEquals(iter.hasNext(), true);
             assertEquals(iter.next(), s);
         }
+    }
+
+    @Test
+    void ConcurrentModificationExceptionTest() {
+        Tree<String> treeA = new Tree<>("A");
+        treeA.add("B");
+        treeA.add("C");
+        Iterator<String> iter = treeA.iterator(Tree.TypeOfIterator.DFS);
+        treeA.add("D");
+        assertThrows(ConcurrentModificationException.class, () -> iter.hasNext());
+        assertThrows(ConcurrentModificationException.class, () -> iter.next());
     }
 
     @Test

@@ -19,15 +19,16 @@ public class Tree<E> implements Iterable<E> {
      * link to parent node.
      */
     private Tree<E> parent;
+    public int numOfOperations;
     /**
      * array of son nodes.
      */
     private final ArrayList<Tree<E>> sons;
+
     /**
-     * typeOfIterator = "BFS"/"DFS".
-     * Used for Iterator method
+     * typeOfIterator = "BFS"/"DFS". Used for Iterator method
      */
-    private String typeOfIterator;
+    public enum TypeOfIterator {DFS, BFS}
 
     /**
      * builds an empty tree with null value.
@@ -36,6 +37,7 @@ public class Tree<E> implements Iterable<E> {
         this.value = null;
         this.sons = new ArrayList<>();
         this.parent = null;
+        this.numOfOperations = 0;
     }
 
     /**
@@ -47,16 +49,18 @@ public class Tree<E> implements Iterable<E> {
         this.value = value;
         this.sons = new ArrayList<>();
         this.parent = null;
+        this.numOfOperations = 0;
     }
 
     /**
-     * Add node to sons with value equal value.
-     * if current tree doesn't contain any value add method stores value to this.value
+     * Add node to sons with value equal value. if current tree doesn't contain any value add method
+     * stores value to this.value
      *
      * @param value value you want to save in new node
      * @return link to a created subtree
      */
     public Tree<E> add(E value) {
+        numOfOperations++;
         if (this.value == null) {
             this.value = value;
             return this;
@@ -71,11 +75,12 @@ public class Tree<E> implements Iterable<E> {
     /**
      * add node with value equal value to subtree equal tree.
      *
-     * @param tree subtree in which you want to add a node
+     * @param tree  subtree in which you want to add a node
      * @param value a value of a new node
      * @return null if subtree equal to tree wasn't found, else link to added node
      */
     public Tree<E> add(Tree<E> tree, E value) {
+        numOfOperations++;
         Tree<E> addedNode = null;
         Tree<E> son;
         if (tree == this) {
@@ -93,12 +98,14 @@ public class Tree<E> implements Iterable<E> {
     }
 
     /**
-     * removes a subtree equal to tree.
+     * removes a subtree equal to tree. sons of this subtree are left untouched and removed by
+     * garbage collector
      *
      * @param tree link to tree you want to remove
      * @return true if removing is successful and false if such subtree wasn't found
      */
     public boolean remove(Tree<E> tree) {
+        numOfOperations++;
         if (sons.contains(tree)) {
             sons.remove(tree);
             return true;
@@ -183,33 +190,21 @@ public class Tree<E> implements Iterable<E> {
     }
 
     /**
-     * returns an iterator with the dfs traversal type.
+     * returns an iterator with the "type" traversal type.
      *
-     * @return iterator with the dfs traversal type
+     * @return iterator with the "type" traversal type
      */
-    public Iterator<E> dfsIterator() {
-        this.typeOfIterator = "DFS";
-        return this.iterator();
+    public Iterator<E> iterator(TypeOfIterator type) {
+        return (Iterator<E>) new TreeIterator<>(this, type);
     }
 
     /**
-     * returns an iterator with the bfs traversal type.
-     *
-     * @return iterator with the bfs traversal type
-     */
-    public Iterator<E> bfsIterator() {
-        this.typeOfIterator = "BFS";
-        return this.iterator();
-    }
-
-    /**
-     * iterator for tree.
+     * dfs iterator for tree.
      *
      * @return Iterator object
      */
-    @SuppressWarnings("unchecked")
     @Override
     public Iterator<E> iterator() {
-        return (Iterator<E>) new TreeIterator<>(this, typeOfIterator);
+        return (Iterator<E>) new TreeIterator<>(this, TypeOfIterator.DFS);
     }
 }
