@@ -28,7 +28,9 @@ public class Tree<E> implements Iterable<E> {
     /**
      * typeOfIterator = "BFS"/"DFS". Used for Iterator method
      */
-    public enum TypeOfIterator {DFS, BFS}
+    public enum TypeOfIterator {
+        DFS, BFS
+    }
 
     /**
      * builds an empty tree with null value.

@@ -3,8 +3,8 @@ package ru.nsu.ntatarinov;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.ConcurrentModificationException;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import org.junit.jupiter.api.Test;
 
@@ -118,7 +118,7 @@ public class TreeTests {
     }
 
     @Test
-    void ConcurrentModificationExceptionTest() {
+    void concurrentModificationExceptionTest() {
         Tree<String> treeA = new Tree<>("A");
         treeA.add("B");
         treeA.add("C");
