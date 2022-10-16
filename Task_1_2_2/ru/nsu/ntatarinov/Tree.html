@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -86,14 +86,14 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -147,6 +147,54 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="Tree.TypeOfIterator.html" title="enum in ru.nsu.ntatarinov">Tree.TypeOfIterator</a></span></code></th>
+<td class="colLast">
+<div class="block">typeOfIterator = "BFS"/"DFS".</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
+<!-- =========== FIELD SUMMARY =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#numOfOperations">numOfOperations</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -206,69 +254,62 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bfsIterator()">bfsIterator</a></span>()</code></th>
-<td class="colLast">
-<div class="block">returns an iterator with the bfs traversal type.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dfsIterator()">dfsIterator</a></span>()</code></th>
-<td class="colLast">
-<div class="block">returns an iterator with the dfs traversal type.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNodeByValue(E)">getNodeByValue</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">method to get a node with value equal value.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParent()">getParent</a></span>()</code></th>
 <td class="colLast">
 <div class="block">returns a parent of current subtree, else null if current node is a root.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSons()">getSons</a></span>()</code></th>
 <td class="colLast">
 <div class="block">list of son nodes.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#iterator()">iterator</a></span>()</code></th>
 <td class="colLast">
-<div class="block">iterator for tree.</div>
+<div class="block">dfs iterator for tree.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#iterator(ru.nsu.ntatarinov.Tree.TypeOfIterator)">iterator</a></span>&#8203;(<a href="Tree.TypeOfIterator.html" title="enum in ru.nsu.ntatarinov">Tree.TypeOfIterator</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">returns an iterator with the "type" traversal type.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(ru.nsu.ntatarinov.Tree)">remove</a></span>&#8203;(<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;tree)</code></th>
 <td class="colLast">
 <div class="block">removes a subtree equal to tree.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#size()">size</a></span>()</code></th>
 <td class="colLast">
 <div class="block">returns size of tree.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sonsValues()">sonsValues</a></span>()</code></th>
 <td class="colLast">
 <div class="block">list of values of son nodes.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="Tree.html" title="type parameter in Tree">E</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#value()">value</a></span>()</code></th>
 <td class="colLast">
@@ -299,6 +340,25 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="numOfOperations">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>numOfOperations</h4>
+<pre>public&nbsp;int numOfOperations</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -351,8 +411,8 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>add</h4>
 <pre class="methodSignature">public&nbsp;<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;add&#8203;(<a href="Tree.html" title="type parameter in Tree">E</a>&nbsp;value)</pre>
-<div class="block">Add node to sons with value equal value.
- if current tree doesn't contain any value add method stores value to this.value</div>
+<div class="block">Add node to sons with value equal value. if current tree doesn't contain any value add method
+ stores value to this.value</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>value</code> - value you want to save in new node</dd>
@@ -388,7 +448,8 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>remove</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;remove&#8203;(<a href="Tree.html" title="class in ru.nsu.ntatarinov">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;tree)</pre>
-<div class="block">removes a subtree equal to tree.</div>
+<div class="block">removes a subtree equal to tree. sons of this subtree are left untouched and removed by
+ garbage collector</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>tree</code> - link to tree you want to remove</dd>
@@ -485,31 +546,17 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 </dl>
 </li>
 </ul>
-<a id="dfsIterator()">
+<a id="iterator(ru.nsu.ntatarinov.Tree.TypeOfIterator)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>dfsIterator</h4>
-<pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;dfsIterator()</pre>
-<div class="block">returns an iterator with the dfs traversal type.</div>
+<h4>iterator</h4>
+<pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;iterator&#8203;(<a href="Tree.TypeOfIterator.html" title="enum in ru.nsu.ntatarinov">Tree.TypeOfIterator</a>&nbsp;type)</pre>
+<div class="block">returns an iterator with the "type" traversal type.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>iterator with the dfs traversal type</dd>
-</dl>
-</li>
-</ul>
-<a id="bfsIterator()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>bfsIterator</h4>
-<pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;bfsIterator()</pre>
-<div class="block">returns an iterator with the bfs traversal type.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>iterator with the bfs traversal type</dd>
+<dd>iterator with the "type" traversal type</dd>
 </dl>
 </li>
 </ul>
@@ -520,7 +567,7 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <li class="blockList">
 <h4>iterator</h4>
 <pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;&nbsp;iterator()</pre>
-<div class="block">iterator for tree.</div>
+<div class="block">dfs iterator for tree.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>iterator</code>&nbsp;in interface&nbsp;<code>java.lang.Iterable&lt;<a href="Tree.html" title="type parameter in Tree">E</a>&gt;</code></dd>
@@ -579,14 +626,14 @@ implements java.lang.Iterable&lt;E&gt;</pre>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
