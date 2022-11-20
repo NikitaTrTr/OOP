@@ -4,10 +4,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SubstringFinder {
 
-    public static ArrayList<Long> findSubstringEntries(String fileName, String pattern)
+    public static List<Long> findSubstringEntries(String fileName, String pattern)
         throws IOException {
         InputStream input = null;
         try {
@@ -38,15 +39,15 @@ public class SubstringFinder {
         return zfunc;
     }
 
-    private static ArrayList<Long> findEntries(Integer[] zfunc, InputStream input, char[] pattern)
+    private static List<Long> findEntries(Integer[] zfunc, InputStream input, char[] pattern)
         throws IOException {
-        ArrayList<Long> entries = new ArrayList<>();
+        List<Long> entries = new ArrayList<>();
         long left = 0L;
         long right = 0L;
         long index = 0L;
         int zfuncValue;
         int len = pattern.length;
-        ArrayList<Integer> buffer = new ArrayList<>();
+        List<Integer> buffer = new ArrayList<>();
         for (int i = 0; i < len; i++) {
             buffer.add(input.read());
         }
