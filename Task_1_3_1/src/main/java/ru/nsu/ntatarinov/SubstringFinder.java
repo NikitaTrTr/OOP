@@ -19,6 +19,13 @@ public class SubstringFinder {
         Integer[] zfunc = findZfuncForPattern(pattern.toCharArray());
         return findEntries(zfunc, input, pattern.toCharArray());
     }
+    public static List<Long> findSubstringEntries(InputStream input, String pattern)
+        throws IOException {
+        if (input == null)
+            throw new NullPointerException();
+        Integer[] zfunc = findZfuncForPattern(pattern.toCharArray());
+        return findEntries(zfunc, input, pattern.toCharArray());
+    }
 
     private static Integer[] findZfuncForPattern(char[] pattern) {
         int left = 0;

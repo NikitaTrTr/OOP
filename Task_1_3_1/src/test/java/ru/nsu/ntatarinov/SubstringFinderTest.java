@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -29,6 +30,14 @@ public class SubstringFinderTest {
     void nullPointerExceptionTest() {
         assertThrows(NullPointerException.class,
             () -> SubstringFinder.findSubstringEntries("./src/test/resources/test1.txt",
+                "pattern"));
+    }
+
+    @Test
+    void nullPointerExceptionTest2() {
+        InputStream input = null;
+        assertThrows(NullPointerException.class,
+            () -> SubstringFinder.findSubstringEntries(input,
                 "pattern"));
     }
 }
