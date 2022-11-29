@@ -3,6 +3,7 @@ package ru.nsu.ntatarinov;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class SubstringFinderTest {
 
     @Test
     void nullPointerExceptionTest() {
-        assertThrows(NullPointerException.class,
+        assertThrows(FileNotFoundException.class,
             () -> SubstringFinder.findSubstringEntries("./src/test/resources/test1.txt",
                 "pattern"));
     }
