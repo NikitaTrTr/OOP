@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">SubstringFinder</span>
 extends java.lang.Object</pre>
+<div class="block">class for finding  substrings in text.</div>
 </li>
 </ul>
 </div>
@@ -177,13 +178,17 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static java.util.List&lt;java.lang.Long&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findSubstringEntries(java.io.InputStream,java.lang.String)">findSubstringEntries</a></span>&#8203;(java.io.InputStream&nbsp;input,
                     java.lang.String&nbsp;pattern)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">finds indices of entries of substring pattern in 'input' stream.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static java.util.List&lt;java.lang.Long&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findSubstringEntries(java.lang.String,java.lang.String)">findSubstringEntries</a></span>&#8203;(java.lang.String&nbsp;fileName,
                     java.lang.String&nbsp;pattern)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">finds indices of entries of substring pattern in 'input' stream.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -237,9 +242,15 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public static&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;findSubstringEntries&#8203;(java.lang.String&nbsp;fileName,
                                                                   java.lang.String&nbsp;pattern)
                                                            throws java.io.IOException</pre>
+<div class="block">finds indices of entries of substring pattern in 'input' stream.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fileName</code> - name of file for find substring</dd>
+<dd><code>pattern</code> - substring for search</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of indices</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - IOException</dd>
 </dl>
 </li>
 </ul>
@@ -252,9 +263,15 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public static&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;findSubstringEntries&#8203;(java.io.InputStream&nbsp;input,
                                                                   java.lang.String&nbsp;pattern)
                                                            throws java.io.IOException</pre>
+<div class="block">finds indices of entries of substring pattern in 'input' stream.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>input</code> - stream in which you want to find a pattern</dd>
+<dd><code>pattern</code> - substring for search</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of indices</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - IOException</dd>
 </dl>
 </li>
 </ul>
