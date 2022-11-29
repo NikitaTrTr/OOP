@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * class for finding substrings in text.
+ * class for finding  substrings in text.
  */
 public class SubstringFinder {
 
