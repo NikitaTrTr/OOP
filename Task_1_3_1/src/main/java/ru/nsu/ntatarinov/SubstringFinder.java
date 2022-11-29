@@ -1,66 +1,74 @@
 package ru.nsu.ntatarinov;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * class for finding substrings in text.
+ */
 public class SubstringFinder {
 
+    /**
+     * finds indices of entries of substring pattern in 'input' stream.
+     *
+     * @param fileName name of file for find substring
+     * @param pattern  substring for search
+     * @return list of indices
+     * @throws IOException IOException
+     */
     public static List<Long> findSubstringEntries(String fileName, String pattern)
         throws IOException {
-        InputStream input = null;
-        try {
-            input = new FileInputStream(fileName);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-        Integer[] zfunc = findZfuncForPattern(pattern.toCharArray());
-        return findEntries(zfunc, input, pattern.toCharArray());
+        InputStream input = new FileInputStream(fileName);
+        return findEntries(input, ((pattern + '&').getBytes()));
     }
+
+    /**
+     * finds indices of entries of substring pattern in 'input' stream.
+     *
+     * @param input   stream in which you want to find a pattern
+     * @param pattern substring for search
+     * @return list of indices
+     * @throws IOException IOException
+     */
     public static List<Long> findSubstringEntries(InputStream input, String pattern)
         throws IOException {
-        if (input == null)
+        if (input == null) {
             throw new NullPointerException();
-        Integer[] zfunc = findZfuncForPattern(pattern.toCharArray());
-        return findEntries(zfunc, input, pattern.toCharArray());
-    }
-
-    private static Integer[] findZfuncForPattern(char[] pattern) {
-        int left = 0;
-        int right = 0;
-        int len = pattern.length;
-        Integer[] zfunc = new Integer[len];
-        zfunc[0] = len;
-        for (int i = 1; i < len; i++) {
-            zfunc[i] = (right > i) ? Integer.min(zfunc[i - left], right - i) : 0;
-            while (i + zfunc[i] < len && pattern[zfunc[i]] == pattern[i + zfunc[i]]) {
-                zfunc[i] += 1;
-            }
-            if (i + zfunc[i] > right) {
-                left = i;
-                right = i + zfunc[i];
-            }
         }
-        return zfunc;
+        return findEntries(input, pattern.getBytes());
     }
 
-    private static List<Long> findEntries(Integer[] zfunc, InputStream input, char[] pattern)
+    /**
+     * finds entries using Z function.
+     *
+     * @param textStream stream in which you want to find a pattern
+     * @param pattern    substring for search
+     * @return list of indices
+     * @throws IOException IOException
+     */
+    private static List<Long> findEntries(InputStream textStream, byte[] pattern)
         throws IOException {
         List<Long> entries = new ArrayList<>();
+        InputStream input = new ByteArrayInputStream(pattern);
         long left = 0L;
         long right = 0L;
         long index = 0L;
         int zfuncValue;
         int len = pattern.length;
+        int[] patZfunc = new int[len];
         List<Integer> buffer = new ArrayList<>();
         for (int i = 0; i < len; i++) {
             buffer.add(input.read());
         }
+        input.close();
+        input = textStream;
         while (true) {
             zfuncValue =
-                (right > index) ? (int) Long.min((long) zfunc[(int) (index - left)], right - index)
+                (right > index) ? (int) Long.min(patZfunc[(int) (index - left)], right - index)
                     : 0;
             while (zfuncValue < len && pattern[zfuncValue] == buffer.get(zfuncValue)) {
                 zfuncValue += 1;
@@ -76,10 +84,12 @@ public class SubstringFinder {
                 input.close();
                 break;
             }
-            if (zfuncValue == len) {
-                entries.add(index);
+            if (index < len) {
+                patZfunc[(int) index] = zfuncValue;
             }
-
+            if (zfuncValue == len - 1 & index >= len) {
+                entries.add(index - len);
+            }
             index += 1;
         }
         return entries;
