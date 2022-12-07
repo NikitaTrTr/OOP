@@ -31,8 +31,10 @@ public class RecordBookTest {
         assertFalse(myBook.ableToGetRedDiploma());
         assertTrue(myBook.hasIncreasedStipend());
         assertEquals(5.0, myBook.averageMark(2));
-        assertEquals("ID: 210614\nName: Nikita Tatarinov\nFaculty: FIT\nYear of Education: 2\n", myBook.toString());
+        assertEquals("ID: 210614\nName: Nikita Tatarinov\nFaculty: FIT\nYear of Education: 2\n",
+            myBook.toString());
     }
+
     @Test
     void anotherTest() {
         RecordBook myBook = new RecordBook(210614, "Nikita", "Tatarinov", "FIT", 3);
@@ -48,7 +50,8 @@ public class RecordBookTest {
         assertEquals("Vlasov", myRec.teacherName);
         assertEquals(5, myRec.mark);
         assertEquals("Declarative programming", myRec.disciplineName);
-        assertEquals("Discipline: Declarative programming, teacher: Vlasov, mark: 5, semester: 1\n", myRec.toString());
+        assertEquals("Discipline: Declarative programming, teacher: Vlasov, mark: 5, semester: 1\n",
+            myRec.toString());
     }
 
 }

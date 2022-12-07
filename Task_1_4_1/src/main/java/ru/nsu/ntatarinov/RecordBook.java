@@ -18,11 +18,11 @@ public class RecordBook {
     /**
      * creates Record book.
      *
-     * @param id ID number of student
+     * @param id        ID number of student
      * @param firstName first name of student
-     * @param lastName last name of student
-     * @param faculty faculty
-     * @param semester number of current semester
+     * @param lastName  last name of student
+     * @param faculty   faculty
+     * @param semester  number of current semester
      */
     public RecordBook(int id, String firstName, String lastName, String faculty, int semester) {
         this.id = id;
@@ -111,7 +111,7 @@ public class RecordBook {
      */
     public String toString() {
         return String.format("ID: %d\nName: %s\nFaculty: %s\nYear of Education: %d\n",
-            id, firstName +" "+ lastName, faculty, (numberOfSemester - 1) / 2 + 1);
+            id, firstName + " " + lastName, faculty, (numberOfSemester - 1) / 2 + 1);
     }
 
 }
