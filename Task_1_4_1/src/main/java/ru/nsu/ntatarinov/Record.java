@@ -5,7 +5,7 @@ public class Record {
     public String teacherName;
     public int mark;
     public int semester;
-    Record(String disciplineName, String teacherName, int mark, int semester){
+    public Record(String disciplineName, String teacherName, int mark, int semester){
         this.disciplineName = disciplineName;
         this.teacherName = teacherName;
         this.mark = mark;
