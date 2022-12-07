@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -29,6 +31,24 @@ public class RecordBookTest {
         assertFalse(myBook.ableToGetRedDiploma());
         assertTrue(myBook.hasIncreasedStipend());
         assertEquals(5.0, myBook.averageMark(2));
+        assertEquals("ID: 210614\nName: Nikita Tatarinov\nFaculty: FIT\nYear of Education: 2\n", myBook.toString());
+    }
+    @Test
+    void anotherTest() {
+        RecordBook myBook = new RecordBook(210614, "Nikita", "Tatarinov", "FIT", 3);
+        Record myRec = new Record("Declarative programming", "Vlasov", 5, 1);
+        Record myRec2 = new Record("Digital platforms", "IRTEGOV", 5, 2);
+        myBook.addRecord(myRec);
+        myBook.addRecord(myRec2);
+        List<Record> records = new ArrayList<>();
+        records.add(myRec);
+        records.add(myRec2);
+        assertArrayEquals(records.toArray(), myBook.getAllRecords().toArray());
+        assertEquals(1, myRec.semester);
+        assertEquals("Vlasov", myRec.teacherName);
+        assertEquals(5, myRec.mark);
+        assertEquals("Declarative programming", myRec.disciplineName);
+        assertEquals("Discipline: Declarative programming, teacher: Vlasov, mark: 5, semester: 1\n", myRec.toString());
     }
 
 }
