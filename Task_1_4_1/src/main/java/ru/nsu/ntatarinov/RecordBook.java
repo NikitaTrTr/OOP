@@ -111,7 +111,7 @@ public class RecordBook {
      */
     public String toString() {
         return String.format("ID: %d\nName: %s\nFaculty: %s\nYear of Education: %d\n",
-            id, firstName + lastName, faculty, (numberOfSemester - 1) / 2 + 1);
+            id, firstName +" "+ lastName, faculty, (numberOfSemester - 1) / 2 + 1);
     }
 
 }
