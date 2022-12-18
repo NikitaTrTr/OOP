@@ -15,13 +15,17 @@ public class Calculator {
         Stack<String> stack = new Stack<>();
         for (int i = exp.size() - 1; i >= 0; i--) {
             String token = exp.get(i);
-            if (!ops.contains(token)){
+            if (!ops.contains(token)) {
                 stack.push(token);
-            }
-            else {
-                Double arg1 = Double.valueOf(stack.pop());
-                Double arg2 = Double.valueOf(stack.pop());
-                stack.push(OperationFactory.getFunc(token).apply(arg1, arg2).toString());
+            } else {
+                if (operations.getFunc(token).getArity() == 2) {
+                    Double arg1 = Double.valueOf(stack.pop());
+                    Double arg2 = Double.valueOf(stack.pop());
+                    stack.push(operations.getFunc(token).apply(arg1, arg2).toString());
+                } else {
+                    Double arg1 = Double.valueOf(stack.pop());
+                    stack.push(operations.getFunc(token).apply(arg1).toString());
+                }
             }
         }
         return Double.valueOf(stack.pop());
