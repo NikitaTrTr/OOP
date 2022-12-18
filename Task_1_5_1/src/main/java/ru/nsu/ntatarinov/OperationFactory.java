@@ -13,10 +13,14 @@ import ru.nsu.ntatarinov.operations.Sqrt;
 import ru.nsu.ntatarinov.operations.Divide;
 import ru.nsu.ntatarinov.operations.Multiply;
 
+/**
+ * creates an Operation class from string representation of function.
+ */
 public class OperationFactory {
 
-    private static final HashMap<String, Operation> operators = new HashMap<>();
-    public OperationFactory(){
+    private final HashMap<String, Operation> operators = new HashMap<>();
+
+    public OperationFactory() {
         operators.put("+", new Plus());
         operators.put("pow", new Power());
         operators.put("-", new Minus());
@@ -27,7 +31,8 @@ public class OperationFactory {
         operators.put("sin", new Sin());
         operators.put("sqrt", new Sqrt());
     }
-    public static Operation getFunc(String str){
+
+    public Operation getFunc(String str) {
         return operators.get(str);
     }
 
