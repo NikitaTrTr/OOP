@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10};
+var data = {"i0":10,"i1":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -89,13 +89,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -144,29 +144,6 @@ implements <a href="../Operation.html" title="interface in ru.nsu.ntatarinov">Op
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<section>
-<ul class="blockList">
-<li class="blockList"><a id="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Field</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#arity">arity</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
-</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section>
 <ul class="blockList">
@@ -205,7 +182,16 @@ implements <a href="../Operation.html" title="interface in ru.nsu.ntatarinov">Op
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.lang.Double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#apply(java.lang.Double...)">apply</a></span>&#8203;(java.lang.Double...&nbsp;args)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">applies operations to arguments in args.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArity()">getArity</a></span>()</code></th>
+<td class="colLast">
+<div class="block">shows a number of arguments of operation.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -224,25 +210,6 @@ implements <a href="../Operation.html" title="interface in ru.nsu.ntatarinov">Op
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<section>
-<ul class="blockList">
-<li class="blockList"><a id="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a id="arity">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>arity</h4>
-<pre>public&nbsp;int arity</pre>
-</li>
-</ul>
-</li>
-</ul>
-</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section>
 <ul class="blockList">
@@ -269,6 +236,23 @@ implements <a href="../Operation.html" title="interface in ru.nsu.ntatarinov">Op
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="getArity()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getArity</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getArity()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Operation.html#getArity()">Operation</a></code></span></div>
+<div class="block">shows a number of arguments of operation.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Operation.html#getArity()">getArity</a></code>&nbsp;in interface&nbsp;<code><a href="../Operation.html" title="interface in ru.nsu.ntatarinov">Operation</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a number of arguments of operation</dd>
+</dl>
+</li>
+</ul>
 <a id="apply(java.lang.Double...)">
 <!--   -->
 </a>
@@ -276,9 +260,15 @@ implements <a href="../Operation.html" title="interface in ru.nsu.ntatarinov">Op
 <li class="blockList">
 <h4>apply</h4>
 <pre class="methodSignature">public&nbsp;java.lang.Double&nbsp;apply&#8203;(java.lang.Double...&nbsp;args)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Operation.html#apply(java.lang.Double...)">Operation</a></code></span></div>
+<div class="block">applies operations to arguments in args.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../Operation.html#apply(java.lang.Double...)">apply</a></code>&nbsp;in interface&nbsp;<code><a href="../Operation.html" title="interface in ru.nsu.ntatarinov">Operation</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>args</code> - arguments</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>result of operation</dd>
 </dl>
 </li>
 </ul>
@@ -334,13 +324,13 @@ implements <a href="../Operation.html" title="interface in ru.nsu.ntatarinov">Op
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
