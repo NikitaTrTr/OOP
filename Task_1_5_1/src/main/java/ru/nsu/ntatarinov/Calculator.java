@@ -7,15 +7,13 @@ import java.util.Stack;
 
 public class Calculator {
 
-    private static final List<String> ops = new ArrayList<>(
-        Arrays.asList("+", "-", "*", "/", "log", "pow", "cos", "sin", "sqrt"));
 
     public static Double calculate(List<String> exp) {
         OperationFactory operations = new OperationFactory();
         Stack<String> stack = new Stack<>();
         for (int i = exp.size() - 1; i >= 0; i--) {
             String token = exp.get(i);
-            if (!ops.contains(token)) {
+            if (operations.getFunc(token) == null) {
                 stack.push(token);
             } else {
                 if (operations.getFunc(token).getArity() == 2) {

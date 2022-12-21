@@ -20,6 +20,7 @@ public class OperationFactory {
 
     private final HashMap<String, Operation> operators = new HashMap<>();
 
+
     public OperationFactory() {
         operators.put("+", new Plus());
         operators.put("pow", new Power());
@@ -33,7 +34,11 @@ public class OperationFactory {
     }
 
     public Operation getFunc(String str) {
-        return operators.get(str);
+        if (operators.containsKey(str)) {
+            return operators.get(str);
+        }
+        return null;
+
     }
 
 }
