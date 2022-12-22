@@ -1,18 +1,16 @@
 package ru.nsu.ntatarinov;
 
-import static java.time.format.DateTimeFormatter.ofLocalizedDateTime;
-import java.time.format.FormatStyle;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Record {
 
-    public LocalDateTime timestamp;
+    public Date timestamp;
     public String title;
     public String text;
 
     public Record(String title, String text) {
-        this.timestamp = LocalDateTime.now();
+        this.timestamp = new Date();
         this.title = title;
         this.text = text;
     }
@@ -29,6 +27,6 @@ public class Record {
 
     @Override
     public String toString() {
-        return timestamp.format(ofLocalizedDateTime(FormatStyle.MEDIUM)) + " " + title + " " + text;
+        return timestamp.toString() + " " + title + " " + text;
     }
 }

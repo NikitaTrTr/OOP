@@ -1,5 +1,7 @@
 package ru.nsu.ntatarinov;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -32,6 +34,22 @@ public class InputParser {
         showOption.setOptionalArg(true);
         options.addOption(showOption);
         return parser.parse(options, args);
+    }
 
+    public static Date dateParser(String dateString) throws java.text.ParseException {
+        SimpleDateFormat parser = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        return parser.parse(dateString);
+    }
+
+    public static boolean isDate(String inputArg) {
+        boolean result;
+        SimpleDateFormat parser = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        try {
+            parser.parse(inputArg);
+            result = true;
+        } catch (java.text.ParseException e) {
+            result = false;
+        }
+        return result;
     }
 }
