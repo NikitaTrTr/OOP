@@ -1,5 +1,8 @@
 package ru.nsu.ntatarinov;
 
+/**
+ * Interface represents contract of calculator operations.
+ */
 public interface Operation {
 
     /**
