@@ -2,6 +2,9 @@ package ru.nsu.ntatarinov.operations;
 
 import ru.nsu.ntatarinov.Operation;
 
+/**
+ * Power operation class.
+ */
 public class Power implements Operation {
 
     @Override

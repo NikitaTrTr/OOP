@@ -2,6 +2,9 @@ package ru.nsu.ntatarinov.operations;
 
 import ru.nsu.ntatarinov.Operation;
 
+/**
+ * Logarithm operation class.
+ */
 public class Log implements Operation {
 
     @Override

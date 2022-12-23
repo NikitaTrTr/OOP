@@ -2,6 +2,9 @@ package ru.nsu.ntatarinov.operations;
 
 import ru.nsu.ntatarinov.Operation;
 
+/**
+ * Multiplication operation class.
+ */
 public class Multiply implements Operation {
 
     @Override

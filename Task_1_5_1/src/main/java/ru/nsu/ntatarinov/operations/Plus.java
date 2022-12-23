@@ -2,6 +2,9 @@ package ru.nsu.ntatarinov.operations;
 
 import ru.nsu.ntatarinov.Operation;
 
+/**
+ * Add operation class.
+ */
 public class Plus implements Operation {
 
     @Override

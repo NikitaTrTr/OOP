@@ -2,6 +2,9 @@ package ru.nsu.ntatarinov.operations;
 
 import ru.nsu.ntatarinov.Operation;
 
+/**
+ * Cosine operation class.
+ */
 public class Cos implements Operation {
 
     @Override
