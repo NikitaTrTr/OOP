@@ -11,7 +11,8 @@ public class Main {
 
     public static void main(String[] args)
         throws IOException, ParseException, java.text.ParseException {
-        Notebook notebook = JsonWriterReader.readFromJson("./src/main/resources/Notebook.json");
+        String notebookPath = "./src/main/resources/Notebook.json";
+        Notebook notebook = JsonWriterReader.readFromJson(notebookPath);
         CommandLine cmd = InputParser.parseArgs(args);
         if (cmd.hasOption("add")) {
             String title = cmd.getOptionValues("add")[0];
@@ -24,8 +25,7 @@ public class Main {
         }
         if (cmd.hasOption("show")) {
             String[] arguments = cmd.getOptionValues("show");
-            int numOfArgs = arguments.length;
-            if (numOfArgs == 0) {
+            if (arguments == null) {
                 notebook.showRecords();
             } else {
                 Date date1 = InputParser.dateParser(arguments[0]);
@@ -35,12 +35,6 @@ public class Main {
             }
         }
 
-        notebook.addRecord("123", "345");
-
-        notebook.addRecord("hello", "bye");
-
-        notebook.addRecord("Irtegov", "is a god");
-        notebook.showRecords();
-
+        //JsonWriterReader.writeToJson(notebook, notebookPath);
     }
 }

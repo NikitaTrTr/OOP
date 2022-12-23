@@ -35,6 +35,9 @@ public class Notebook {
     }
 
     private boolean containsKeywords(String[] keywords, String title) {
+        if (keywords.length == 0) {
+            return true;
+        }
         for (String keyword : keywords) {
             if (title.toUpperCase().contains(keyword.toUpperCase())) {
                 return true;

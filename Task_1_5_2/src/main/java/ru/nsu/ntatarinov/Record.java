@@ -27,6 +27,6 @@ public class Record {
 
     @Override
     public String toString() {
-        return timestamp.toString() + " " + title + " " + text;
+        return timestamp.toString() + "\n" + title + "\n" + text;
     }
 }

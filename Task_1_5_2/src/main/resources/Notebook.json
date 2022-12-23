@@ -2,8 +2,28 @@
   "records": [
     {
       "timestamp": "Dec 22, 2022, 6:07:52 PM",
-      "title": "Irtegov",
-      "text": "is a god"
+      "title": "record #1",
+      "text": "text1"
+    },
+    {
+      "timestamp": "Dec 23, 2022, 10:40:38 PM",
+      "title": "record #2",
+      "text": "text2"
+    },
+    {
+      "timestamp": "Dec 24, 2022, 06:40:38 PM",
+      "title": "record #3",
+      "text": "text3"
+    },
+    {
+      "timestamp": "Dec 25, 2022, 04:40:38 AM",
+      "title": "record #4",
+      "text": "text4"
+    },
+    {
+      "timestamp": "Dec 26, 2022, 08:45:12 PM",
+      "title": "record #5",
+      "text": "text5"
     }
   ]
 }
