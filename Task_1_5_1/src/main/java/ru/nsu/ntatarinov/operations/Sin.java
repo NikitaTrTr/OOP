@@ -2,6 +2,9 @@ package ru.nsu.ntatarinov.operations;
 
 import ru.nsu.ntatarinov.Operation;
 
+/**
+ * Sinus operation class.
+ */
 public class Sin implements Operation {
 
     @Override

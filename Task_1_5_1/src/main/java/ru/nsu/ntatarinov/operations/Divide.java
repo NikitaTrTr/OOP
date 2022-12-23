@@ -2,6 +2,9 @@ package ru.nsu.ntatarinov.operations;
 
 import ru.nsu.ntatarinov.Operation;
 
+/**
+ *  Dividing operation class.
+ */
 public class Divide implements Operation {
 
     @Override

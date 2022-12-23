@@ -2,6 +2,9 @@ package ru.nsu.ntatarinov.operations;
 
 import ru.nsu.ntatarinov.Operation;
 
+/**
+ * Subtract operation class.
+ */
 public class Minus implements Operation {
 
     @Override

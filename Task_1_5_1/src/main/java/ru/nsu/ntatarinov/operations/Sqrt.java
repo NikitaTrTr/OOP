@@ -2,6 +2,9 @@ package ru.nsu.ntatarinov.operations;
 
 import ru.nsu.ntatarinov.Operation;
 
+/**
+ * Sqrt operation class.
+ */
 public class Sqrt implements Operation {
 
     @Override
