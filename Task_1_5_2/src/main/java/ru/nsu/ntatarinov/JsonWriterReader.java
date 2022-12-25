@@ -7,8 +7,18 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Class for reading to and writing from json files.
+ */
 public class JsonWriterReader {
 
+    /**
+     * Write to json file.
+     *
+     * @param notebook object from which get information to write
+     * @param path     path, where to save data
+     * @throws IOException IOException
+     */
     public static void writeToJson(Notebook notebook, String path) throws IOException {
         Gson gson = new GsonBuilder()
             .setPrettyPrinting()
@@ -19,6 +29,13 @@ public class JsonWriterReader {
         writer.flush();
     }
 
+    /**
+     * Read data from json into Notebook object.
+     *
+     * @param path path to a json file
+     * @return Notebook object with filled fields
+     * @throws IOException IOException
+     */
     public static Notebook readFromJson(String path) throws IOException {
         BufferedReader input = new BufferedReader(new FileReader(path));
         StringBuilder sb = new StringBuilder();

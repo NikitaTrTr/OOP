@@ -6,9 +6,19 @@ import java.util.Date;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.ParseException;
 
-
+/**
+ * Main class for executing from console.
+ */
 public class Main {
 
+    /**
+     * Main method, that receives args from console and perform actions given in console.
+     *
+     * @param args arguments from console.
+     * @throws IOException              IOException
+     * @throws ParseException           ParseException
+     * @throws java.text.ParseException java.text.ParseException
+     */
     public static void main(String[] args)
         throws IOException, ParseException, java.text.ParseException {
         String notebookPath = "./src/main/resources/Notebook.json";
