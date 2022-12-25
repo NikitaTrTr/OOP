@@ -74,7 +74,7 @@ public class NotebookTests {
         assertEquals("keyword1", cmd.getOptionValues("show")[2]);
         assertEquals("keyword2", cmd.getOptionValues("show")[3]);
 
-        Date date = new Date(2012-1900, Calendar.DECEMBER,12, 10, 10, 10);
+        Date date = new Date(2012 - 1900, Calendar.DECEMBER, 12, 10, 10, 10);
         assertEquals(date, InputParser.parseDate("12.12.2012 10:10:10"));
     }
 
@@ -82,7 +82,7 @@ public class NotebookTests {
     void jsonWriterReaderTests() throws IOException, java.text.ParseException {
         Notebook notebook = JsonWriterReader.readFromJson("./src/test/resources/source.json");
         Date recordTime = InputParser.parseDate("12.12.2012 12:12:12");
-        Record record = new Record("title_test","empty");
+        Record record = new Record("title_test", "empty");
         record.timestamp = recordTime;
         notebook.addRecord(record);
         JsonWriterReader.writeToJson(notebook, "./src/test/resources/source.json");
@@ -94,5 +94,21 @@ public class NotebookTests {
         String expected = new String(file_expected, StandardCharsets.UTF_8);
 
         assertEquals(expected, result);
+    }
+
+    @Test
+    void mainTests() throws IOException, ParseException, java.text.ParseException {
+        String[] args1 = {"-add", "testTitle", "testText"};
+        Main.main(args1);
+
+        String[] args2 = {"-rm", "testTitle"};
+        Main.main(args2);
+
+        String[] args3 = {"-show"};
+        Main.main(args3);
+
+        String[] args4 = {"-show", "12.12.1970 10:10:10", "08.09.2211 11:11:11", "record #3",
+            "record #4"};
+        Main.main(args4);
     }
 }

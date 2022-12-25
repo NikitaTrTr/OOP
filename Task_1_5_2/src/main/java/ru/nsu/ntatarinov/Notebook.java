@@ -15,7 +15,8 @@ public class Notebook {
     public void addRecord(String title, String text) {
         records.add(new Record(title, text));
     }
-    public void addRecord(Record record){
+
+    public void addRecord(Record record) {
         records.add(record);
     }
 
