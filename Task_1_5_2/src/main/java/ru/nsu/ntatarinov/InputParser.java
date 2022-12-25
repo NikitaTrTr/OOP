@@ -9,11 +9,20 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+/**
+ * Class used to parse arguments from cmd input.
+ */
 public class InputParser {
 
+    /**
+     * Parse arguments from cmd input.
+     *
+     * @param args line with arguments
+     * @return CommandLine object that can be used for getting arguments
+     * @throws ParseException ParseException
+     */
     public static CommandLine parseArgs(String[] args) throws ParseException {
         Options options = new Options();
-        CommandLineParser parser = new DefaultParser();
         options.addOption(Option.builder()
             .option("add")
             .hasArgs()
@@ -32,6 +41,7 @@ public class InputParser {
             .desc("Remove record by its name")
             .build();
         showOption.setOptionalArg(true);
+        CommandLineParser parser = new DefaultParser();
         options.addOption(showOption);
         return parser.parse(options, args);
     }
