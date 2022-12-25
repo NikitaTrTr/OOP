@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Calendar;
 import java.util.Date;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.ParseException;
@@ -73,8 +74,8 @@ public class NotebookTests {
         assertEquals("keyword1", cmd.getOptionValues("show")[2]);
         assertEquals("keyword2", cmd.getOptionValues("show")[3]);
 
-        Date date = new Date((long) 1355289132 * 1000);
-        assertEquals(date, InputParser.parseDate("12.12.2012 12:12:12"));
+        Date date = new Date(2012-1900, Calendar.DECEMBER,12, 10, 10, 10);
+        assertEquals(date, InputParser.parseDate("12.12.2012 10:10:10"));
     }
 
     @Test
