@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Notebook {
 
-    public List<Record> records;
+    public final List<Record> records;
 
     public Notebook() {
         this.records = new ArrayList<>();
@@ -14,6 +14,9 @@ public class Notebook {
 
     public void addRecord(String title, String text) {
         records.add(new Record(title, text));
+    }
+    public void addRecord(Record record){
+        records.add(record);
     }
 
     public void removeRecord(String title) {

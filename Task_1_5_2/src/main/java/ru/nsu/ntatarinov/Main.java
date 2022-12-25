@@ -28,13 +28,12 @@ public class Main {
             if (arguments == null) {
                 notebook.showRecords();
             } else {
-                Date date1 = InputParser.dateParser(arguments[0]);
-                Date date2 = InputParser.dateParser(arguments[1]);
+                Date date1 = InputParser.parseDate(arguments[0]);
+                Date date2 = InputParser.parseDate(arguments[1]);
                 notebook.showRecords(date1, date2,
                     Arrays.stream(arguments).skip(2).toArray(String[]::new));
             }
         }
-
-        //JsonWriterReader.writeToJson(notebook, notebookPath);
+        JsonWriterReader.writeToJson(notebook, notebookPath);
     }
 }

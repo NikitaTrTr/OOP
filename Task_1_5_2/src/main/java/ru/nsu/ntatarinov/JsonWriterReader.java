@@ -14,7 +14,7 @@ public class JsonWriterReader {
             .setPrettyPrinting()
             .create();
         String json = gson.toJson(notebook);
-        FileWriter writer = new FileWriter(path);
+        FileWriter writer = new FileWriter(path, false);
         writer.write(json);
         writer.flush();
     }

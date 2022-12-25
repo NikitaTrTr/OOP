@@ -36,20 +36,8 @@ public class InputParser {
         return parser.parse(options, args);
     }
 
-    public static Date dateParser(String dateString) throws java.text.ParseException {
+    public static Date parseDate(String dateString) throws java.text.ParseException {
         SimpleDateFormat parser = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         return parser.parse(dateString);
-    }
-
-    public static boolean isDate(String inputArg) {
-        boolean result;
-        SimpleDateFormat parser = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-        try {
-            parser.parse(inputArg);
-            result = true;
-        } catch (java.text.ParseException e) {
-            result = false;
-        }
-        return result;
     }
 }
