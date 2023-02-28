@@ -3,7 +3,7 @@ package ru.nsu.ntatarinov;
 import java.util.List;
 
 /**
- * Prime checker that user sequential method of checking.
+ * Prime checker that uses sequential method of checking.
  */
 public class SequentialChecker extends PrimeNumberChecker {
 

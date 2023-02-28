@@ -3,6 +3,9 @@ package ru.nsu.ntatarinov;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Prime checker that user multithreading method of checking.
+ */
 public class MultithreadingChecker extends PrimeNumberChecker {
 
     volatile boolean result;
