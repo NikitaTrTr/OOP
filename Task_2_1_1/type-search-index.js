@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.ntatarinov","l":"CheckingThread"},{"p":"ru.nsu.ntatarinov","l":"MultithreadingChecker"},{"p":"ru.nsu.ntatarinov","l":"ParallelStreamChecker"},{"p":"ru.nsu.ntatarinov","l":"PrimeNumberChecker"},{"p":"ru.nsu.ntatarinov","l":"SequentialChecker"}]
