@@ -1,7 +1,6 @@
 package ru.nsu.ntatarinov;
 
 import java.util.List;
-
 import java.util.concurrent.TimeUnit;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
