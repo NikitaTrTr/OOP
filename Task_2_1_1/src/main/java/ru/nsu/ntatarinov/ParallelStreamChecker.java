@@ -3,7 +3,7 @@ package ru.nsu.ntatarinov;
 import java.util.List;
 
 /**
- * Prime checker that user parallel stream method of checking.
+ * Prime checker that uses parallel stream method of checking.
  */
 public class ParallelStreamChecker extends PrimeNumberChecker {
 

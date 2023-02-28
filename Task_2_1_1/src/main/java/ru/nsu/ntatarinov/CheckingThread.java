@@ -8,7 +8,7 @@ import java.util.List;
 public class CheckingThread extends Thread {
 
     private final List<Integer> list;
-    private final int n;
+    private final int numberOfThread;
     private final MultithreadingChecker parent;
     private final int numOfThreads;
 
@@ -24,14 +24,14 @@ public class CheckingThread extends Thread {
         MultithreadingChecker parent) {
         this.list = list;
         this.parent = parent;
-        this.n = numberOfThread;
+        this.numberOfThread = numberOfThread;
         this.numOfThreads = numOfThreads;
     }
 
     @Override
     public void run() {
         for (int i = 0; i < list.size(); i++) {
-            if (i % numOfThreads == this.n) {
+            if (i % numOfThreads == this.numberOfThread) {
                 if (!PrimeNumberChecker.isPrime(this.list.get(i))) {
                     parent.result = true;
                 }
