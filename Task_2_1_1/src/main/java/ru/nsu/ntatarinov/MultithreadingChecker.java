@@ -2,25 +2,27 @@ package ru.nsu.ntatarinov;
 
 import java.util.ArrayList;
 import java.util.List;
-public class MultithreadingChecker extends PrimeNumberChecker{
 
-    volatile public boolean result;
-    private final int nThreads;
+public class MultithreadingChecker extends PrimeNumberChecker {
 
-    public MultithreadingChecker(List<Integer> list, int nThreads) {
+    volatile boolean result;
+    private final int numOfThreads;
+
+    public MultithreadingChecker(List<Integer> list, int numOfThreads) {
         this.list = list;
-        this.nThreads = nThreads;
+        this.numOfThreads = numOfThreads;
     }
+
     @Override
     public boolean check() throws InterruptedException {
         this.result = false;
         List<CheckingThread> threads = new ArrayList<>();
-        for (int i = 0; i < this.nThreads; i++) {
-            CheckingThread thread = new CheckingThread(this.list, i, this.nThreads, this);
+        for (int i = 0; i < this.numOfThreads; i++) {
+            CheckingThread thread = new CheckingThread(this.list, i, this.numOfThreads, this);
             threads.add(thread);
             thread.start();
         }
-        for (CheckingThread thread : threads){
+        for (CheckingThread thread : threads) {
             thread.join();
         }
         return result;
