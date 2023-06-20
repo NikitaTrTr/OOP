@@ -77,7 +77,8 @@ public class SnakeGameModel {
     public void makeGameStep() {
         checkGameOver();
         this.snakeBody.makeSnakeStep();
-        view.updateView(snakeBody.body, foods, score, winLength-score, snakeBody.currentDirection, walls);
+        view.updateView(snakeBody.body, foods, score, winLength - score, snakeBody.currentDirection,
+            walls);
         checkFoodEating();
     }
 
