@@ -3,6 +3,9 @@ package ru.nsu.ntatarinov;
 import java.awt.Point;
 import java.util.LinkedList;
 
+/**
+ * Snake body mechanics.
+ */
 public class SnakeBody {
 
     private static final int RIGHT = 1;
@@ -12,30 +15,43 @@ public class SnakeBody {
     public LinkedList<Point> body = new LinkedList<>();
     public Point head;
     public int currentDirection;
-    private final int ROWS;
-    private final int COLUMNS;
+    private final int rows;
+    private final int columns;
     public boolean allowedChangeDirection = true;
 
-    public SnakeBody(int ROWS, int COLUMNS) {
-        this.ROWS = ROWS;
-        this.COLUMNS = COLUMNS;
-        this.head = new Point(ROWS / 2, COLUMNS / 2);
+    /**
+     * Constructor for a snake body.
+     *
+     * @param rows number of rows
+     * @param columns number of columns
+     */
+    public SnakeBody(int rows, int columns) {
+        this.rows = rows;
+        this.columns = columns;
+        this.head = new Point(rows / 2, columns / 2);
         body.add(head);
         this.currentDirection = UP;
     }
 
+    /**
+     * Make single snake move.
+     */
     public void makeSnakeStep() {
         body.removeLast();
         body.addFirst(new Point(head.x, head.y));
         switch (currentDirection) {
             case RIGHT:
                 moveRight();
+                break;
             case LEFT:
                 moveLeft();
+                break;
             case UP:
                 moveUp();
+                break;
             case DOWN:
                 moveDown();
+                break;
         }
         allowedChangeDirection = true;
     }
@@ -60,9 +76,12 @@ public class SnakeBody {
         body.add(new Point(-1, -1));
     }
 
+    /**
+     * Resets snake's state to its initial state.
+     */
     public void resetSnakeBody() {
         body.clear();
-        this.head = new Point(ROWS / 2, COLUMNS / 2);
+        this.head = new Point(rows / 2, columns / 2);
         body.add(head);
         this.currentDirection = UP;
     }

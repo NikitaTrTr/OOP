@@ -14,7 +14,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
-
+/**
+ * Welcome screen class.
+ */
 public class WelcomeWindow {
 
     private final Scene scene;
@@ -26,6 +28,14 @@ public class WelcomeWindow {
     private Button helpButton;
     private final SnakeGameController controller;
 
+    /**
+     * Constructor of welcome window.
+     *
+     * @param primaryStage primary stage
+     * @param width width of stage
+     * @param height height of stage
+     * @param controller controller module
+     */
     public WelcomeWindow(Stage primaryStage, int width, int height,
         SnakeGameController controller) {
         this.root = new VBox();
@@ -65,6 +75,9 @@ public class WelcomeWindow {
         this.primaryStage.setScene(this.scene);
     }
 
+    /**
+     * Create and configure help button.
+     */
     public void setHelpButton() {
         this.helpButton = new Button("help");
         helpButton.setPrefWidth(100);

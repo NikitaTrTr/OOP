@@ -7,7 +7,9 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
-
+/**
+ * Controller module.
+ */
 public class SnakeGameController {
 
     private static final int RIGHT = 1;
@@ -22,6 +24,14 @@ public class SnakeGameController {
     public SnakeGameController() {
     }
 
+    /**
+     * Constructor of a controller.
+     *
+     * @param gameView     view module
+     * @param gameModel    model module
+     * @param gameProcess  main game process
+     * @param primaryStage primary stage
+     */
     public void setController(SnakeGameView gameView, SnakeGameModel gameModel,
         SnakeGameMain gameProcess, Stage primaryStage) {
         this.gameView = gameView;
@@ -31,6 +41,12 @@ public class SnakeGameController {
         setSnakeControls();
     }
 
+    /**
+     * Returns an event handler for help button.
+     *
+     * @param helpWindow window with tutorial
+     * @return event handler for help button
+     */
     public EventHandler<ActionEvent> getHelpHandler(Popup helpWindow) {
         return event -> {
             if (!helpWindow.isShowing()) {
@@ -45,6 +61,12 @@ public class SnakeGameController {
         return event -> Platform.exit();
     }
 
+    /**
+     * Returns an event handler for start button.
+     *
+     * @param helpWindow window with tutorial
+     * @return event handler for start button
+     */
     public EventHandler<ActionEvent> getStartHandler(Popup helpWindow) {
         return event -> {
             gameView.showGameField();
@@ -56,12 +78,16 @@ public class SnakeGameController {
             }
         };
     }
-
+    /**
+     * Returns an event handler for restart button.
+     *
+     * @return event handler for restart button
+     */
     public EventHandler<ActionEvent> getNewGameHandler() {
         return event -> {
             gameView.showGameField();
             gameView.turnOffPauseText();
-            gameProcess.timeline.stop();
+            gameProcess.getTimeline().stop();
             gameModel.resetGame();
             try {
                 gameProcess.startMainGameCycle();

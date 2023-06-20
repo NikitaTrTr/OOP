@@ -11,35 +11,39 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * Main class for Snake game.
+ */
 public class SnakeGameMain extends Application {
 
-    private int WIDTH;
-    private final int HEIGHT = 800;
-    private int ROWS;
-    private int COLUMNS;
-    private int  SQUARE_SIZE;
-    private int FREQUENCY = 400;
-    private int NUMBER_OF_FOOD;
-    private int WIN_LENGTH;
-    public Timeline timeline;
+    private int width;
+    private final int height = 800;
+    private int rows;
+    private int columns;
+    private int squareSize;
+    private final int frequency = 400;
+    private int numberOfFood;
+    private int winLength;
+    private Timeline timeline;
     private SnakeGameModel snakeGameModel;
     private SnakeGameView snakeGameView;
     private SnakeGameController snakeGameController;
 
     private int[][] walls;
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(final Stage primaryStage) throws IOException {
         this.setProperties();
         this.snakeGameController = new SnakeGameController();
-        this.snakeGameModel = new SnakeGameModel(ROWS, COLUMNS, WIN_LENGTH, NUMBER_OF_FOOD, walls);
-        this.snakeGameView = new SnakeGameView(WIDTH, HEIGHT, ROWS, COLUMNS, primaryStage,
+        this.snakeGameModel = new SnakeGameModel(rows, columns, winLength, numberOfFood, walls);
+        this.snakeGameView = new SnakeGameView(width, height, rows, columns, primaryStage,
             snakeGameController);
-        this.snakeGameController.setController(snakeGameView, snakeGameModel, this, primaryStage);
+        this.snakeGameController.setController(snakeGameView, snakeGameModel, this,
+            primaryStage);
         this.snakeGameModel.setGameView(snakeGameView);
         primaryStage.show();
     }
@@ -48,22 +52,30 @@ public class SnakeGameMain extends Application {
         Gson propertiesParser = new Gson();
         Properties properties = propertiesParser.fromJson(
             new FileReader("src/main/resources/properties.json"), Properties.class);
-        this.ROWS = properties.rows;
-        this.COLUMNS = properties.columns;
-        this.SQUARE_SIZE = HEIGHT / ROWS;
-        this.WIDTH = COLUMNS * SQUARE_SIZE;
-        this.NUMBER_OF_FOOD = properties.numberOfFood;
-        this.WIN_LENGTH = properties.winLength;
+        this.rows = properties.rows;
+        this.columns = properties.columns;
+        this.squareSize = height / rows;
+        this.width = columns * squareSize;
+        this.numberOfFood = properties.numberOfFood;
+        this.winLength = properties.winLength;
         this.walls = properties.walls;
     }
 
+    /**
+     * Starts main game cycle.
+     *
+     * @throws InterruptedException Interrupted exception
+     */
     public void startMainGameCycle() throws InterruptedException {
         this.timeline = new Timeline(
-            new KeyFrame(Duration.millis(FREQUENCY), e -> mainGameCycle()));
+            new KeyFrame(Duration.millis(frequency), e -> mainGameCycle()));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
 
+    /**
+     * One step of a game.
+     */
     public void mainGameCycle() {
         snakeGameModel.makeGameStep();
         if (snakeGameModel.gameOver) {
@@ -71,6 +83,9 @@ public class SnakeGameMain extends Application {
         }
     }
 
+    /**
+     * Turns on and off a pause.
+     */
     public void turnPause() {
         if (snakeGameModel.isPause) {
             timeline.play();
@@ -81,5 +96,13 @@ public class SnakeGameMain extends Application {
             snakeGameModel.isPause = true;
             snakeGameView.showPauseText();
         }
+    }
+
+    /**
+     * Get timeline object.
+     * @return timeline
+     */
+    public Timeline getTimeline() {
+        return timeline;
     }
 }
