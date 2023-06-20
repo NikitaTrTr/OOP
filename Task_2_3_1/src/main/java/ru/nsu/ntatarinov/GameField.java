@@ -149,10 +149,10 @@ public class GameField {
      *
      * @param score score value
      */
-    public void drawScore(int score) {
+    public void drawScore(int score, int remainingScore) {
         gcObjects.setFill(Color.WHITE);
         gcObjects.setFont(new Font(35));
-        gcObjects.fillText("Score: " + score, 10, 35);
+        gcObjects.fillText("Score: " + score + "\nFor win: " + remainingScore, 10, 35);
     }
 
     /**
