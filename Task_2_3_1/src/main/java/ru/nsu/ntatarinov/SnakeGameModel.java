@@ -39,9 +39,7 @@ public class SnakeGameModel {
     }
     private Point checkCollisionWithSnake(Point wallCell){
         if (wallCell.equals(snakeBody.head)){
-            throw new IllegalArgumentException("""
-                        Snake spawns in a wall. Change walls' position
-                        """);
+            throw new IllegalArgumentException("Snake spawns in a wall. Change walls' position");
         }
         return wallCell;
     }

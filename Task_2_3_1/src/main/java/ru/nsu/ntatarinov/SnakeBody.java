@@ -28,10 +28,14 @@ public class SnakeBody {
         body.removeLast();
         body.addFirst(new Point(head.x, head.y));
         switch (currentDirection) {
-            case RIGHT -> moveRight();
-            case LEFT -> moveLeft();
-            case UP -> moveUp();
-            case DOWN -> moveDown();
+            case RIGHT:
+                moveRight();
+            case LEFT:
+                moveLeft();
+            case UP:
+                moveUp();
+            case DOWN:
+                moveDown();
         }
         allowedChangeDirection = true;
     }
