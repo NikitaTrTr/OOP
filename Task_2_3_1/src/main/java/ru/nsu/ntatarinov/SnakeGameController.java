@@ -78,6 +78,7 @@ public class SnakeGameController {
             }
         };
     }
+
     /**
      * Returns an event handler for restart button.
      *
