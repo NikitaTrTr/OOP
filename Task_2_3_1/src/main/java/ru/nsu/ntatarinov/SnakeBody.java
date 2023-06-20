@@ -46,11 +46,11 @@ public class SnakeBody {
             case LEFT:
                 moveLeft();
                 break;
-            case UP:
-                moveUp();
-                break;
             case DOWN:
                 moveDown();
+                break;
+            default:
+                moveUp();
                 break;
         }
         allowedChangeDirection = true;
