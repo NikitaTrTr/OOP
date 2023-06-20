@@ -1,6 +1,5 @@
 package ru.nsu.ntatarinov;
 
-import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,18 +7,23 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 public class GameOverWindow {
 
-    private Scene scene;
-    private SnakeGame gameProccess;
-    private VBox root;
+    private final Scene scene;
+    private final VBox root;
     private Label scoreValue;
+    private final SnakeGameController controller;
+    private final Stage primaryStage;
+    private Label gameResultLabel;
 
-    public GameOverWindow(SnakeGame gameProccess) {
+    public GameOverWindow(Stage primaryStage, int width, int height,
+        SnakeGameController controller) {
+        this.primaryStage = primaryStage;
+        this.controller = controller;
         this.root = new VBox();
-        this.scene = new Scene(root, 800, 800);
-        this.gameProccess = gameProccess;
+        this.scene = new Scene(root, width, height);
         root.setStyle("-fx-background-color: #000000");
         root.setAlignment(Pos.CENTER);
         root.setSpacing(20);
@@ -29,11 +33,10 @@ public class GameOverWindow {
     }
 
     private void setGameOverLabel() {
-        Label label = new Label("GAME OVER");
+        this.gameResultLabel = new Label();
         Font font = new Font(70);
-        label.setTextFill(Color.RED);
-        label.setFont(font);
-        root.getChildren().add(label);
+        gameResultLabel.setFont(font);
+        root.getChildren().add(gameResultLabel);
         scoreValue = new Label();
         scoreValue.setFont(new Font(30));
         root.getChildren().add(scoreValue);
@@ -44,15 +47,7 @@ public class GameOverWindow {
         newGameButton.setPrefWidth(100);
         newGameButton.setPrefHeight(30);
         root.getChildren().add(newGameButton);
-        newGameButton.setOnAction(event -> {
-            gameProccess.showGameField();
-            gameProccess.resetGame();
-            try {
-                gameProccess.startMainGameLoop();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
+        newGameButton.setOnAction(controller.getNewGameHandler());
     }
 
     private void setExitButton() {
@@ -60,13 +55,17 @@ public class GameOverWindow {
         exitButton.setPrefWidth(100);
         exitButton.setPrefHeight(30);
         root.getChildren().add(exitButton);
-        exitButton.setOnAction(event -> {
-            Platform.exit();
-        });
+        exitButton.setOnAction(controller.getExitHandler());
     }
 
-    public void showGameOver() {
-        scoreValue.setText("Your score: " + gameProccess.score);
-        gameProccess.mainStage.setScene(scene);
+    public void showGameOver(int score, String gameResult) {
+        gameResultLabel.setText(gameResult);
+        if (gameResult.equals("WIN")) {
+            gameResultLabel.setTextFill(Color.YELLOW);
+        } else {
+            gameResultLabel.setTextFill(Color.RED);
+        }
+        scoreValue.setText("Your score: " + score);
+        primaryStage.setScene(scene);
     }
 }
