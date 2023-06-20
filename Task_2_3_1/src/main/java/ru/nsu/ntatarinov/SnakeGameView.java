@@ -21,12 +21,12 @@ public class SnakeGameView {
     /**
      * Constructor of a game view.
      *
-     * @param width width of a stage
-     * @param height height of a stage
-     * @param rows number of rows on a field
-     * @param columns number of columns on a field
+     * @param width        width of a stage
+     * @param height       height of a stage
+     * @param rows         number of rows on a field
+     * @param columns      number of columns on a field
      * @param primaryStage primary application stage
-     * @param controller controller module
+     * @param controller   controller module
      */
     public SnakeGameView(int width, int height, int rows, int columns, Stage primaryStage,
         SnakeGameController controller) {
@@ -58,19 +58,19 @@ public class SnakeGameView {
     /**
      * Update a GUI.
      *
-     * @param body snake's body
-     * @param foods foods' location
-     * @param score score value
+     * @param body             snake's body
+     * @param foods            foods' location
+     * @param score            score value
      * @param currentDirection direction of snake move
-     * @param walls walls' positions
+     * @param walls            walls' positions
      */
-    public void updateView(LinkedList<Point> body, List<Point> foods, int score,
+    public void updateView(LinkedList<Point> body, List<Point> foods, int score, int remainingScore,
         int currentDirection, List<Point> walls) {
         gameField.clearObjects();
         gameField.drawSnake(currentDirection, body);
         gameField.drawFood(foods);
         gameField.drawWalls(walls);
-        gameField.drawScore(score);
+        gameField.drawScore(score, remainingScore);
     }
 
     public void showGameField() {
