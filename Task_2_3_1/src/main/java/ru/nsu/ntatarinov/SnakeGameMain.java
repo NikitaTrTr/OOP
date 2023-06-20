@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -50,8 +51,9 @@ public class SnakeGameMain extends Application {
 
     private void setProperties() throws FileNotFoundException {
         Gson propertiesParser = new Gson();
+        ClassLoader classLoader = SnakeGameMain.class.getClassLoader();
         Properties properties = propertiesParser.fromJson(
-            new FileReader("src/main/resources/properties.json"), Properties.class);
+            new FileReader(classLoader.getResource("properties.json").getFile()), Properties.class);
         this.rows = properties.rows;
         this.columns = properties.columns;
         this.squareSize = height / rows;
