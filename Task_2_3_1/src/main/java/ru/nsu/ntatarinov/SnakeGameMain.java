@@ -100,6 +100,7 @@ public class SnakeGameMain extends Application {
 
     /**
      * Get timeline object.
+     *
      * @return timeline
      */
     public Timeline getTimeline() {
