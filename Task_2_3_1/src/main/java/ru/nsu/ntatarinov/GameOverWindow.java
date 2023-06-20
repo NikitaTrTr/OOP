@@ -9,6 +9,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+/**
+ * Game over screen.
+ */
 public class GameOverWindow {
 
     private final Scene scene;
@@ -18,6 +21,14 @@ public class GameOverWindow {
     private final Stage primaryStage;
     private Label gameResultLabel;
 
+    /**
+     * Constructor of game over screen.
+     *
+     * @param primaryStage primary stage
+     * @param width        width of stage
+     * @param height       height of stage
+     * @param controller   controller module
+     */
     public GameOverWindow(Stage primaryStage, int width, int height,
         SnakeGameController controller) {
         this.primaryStage = primaryStage;
@@ -58,6 +69,12 @@ public class GameOverWindow {
         exitButton.setOnAction(controller.getExitHandler());
     }
 
+    /**
+     * Shows this windows on a stage.
+     *
+     * @param score      collected score
+     * @param gameResult win or lose
+     */
     public void showGameOver(int score, String gameResult) {
         gameResultLabel.setText(gameResult);
         if (gameResult.equals("WIN")) {

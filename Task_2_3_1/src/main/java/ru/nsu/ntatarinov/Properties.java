@@ -1,5 +1,8 @@
 package ru.nsu.ntatarinov;
 
+/**
+ * Properties template.
+ */
 public class Properties {
     public int rows;
     public int columns;
