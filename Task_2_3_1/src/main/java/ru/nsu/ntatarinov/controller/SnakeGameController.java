@@ -1,11 +1,17 @@
-package ru.nsu.ntatarinov;
+package ru.nsu.ntatarinov.controller;
 
+import java.awt.Point;
+import java.util.LinkedList;
+import java.util.List;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import ru.nsu.ntatarinov.SnakeGameMain;
+import ru.nsu.ntatarinov.model.SnakeGameModel;
+import ru.nsu.ntatarinov.view.SnakeGameView;
 
 /**
  * Controller module.
@@ -89,6 +95,7 @@ public class SnakeGameController {
             gameView.showGameField();
             gameView.turnOffPauseText();
             gameProcess.getTimeline().stop();
+            gameView.clear();
             gameModel.resetGame();
             try {
                 gameProcess.startMainGameCycle();
@@ -129,5 +136,28 @@ public class SnakeGameController {
                 gameProcess.turnPause();
             }
         });
+    }
+
+    /**
+     * Make single game step.
+     */
+    public void makeGameStep() {
+        LinkedList<Point> body = gameModel.getSnakeBody();
+        List<Point> foods = gameModel.getFoods();
+        int score = gameModel.getScore();
+        int remainingScore = gameModel.getRemainingScore();
+        int direction = gameModel.getDirection();
+        List<Point> walls = gameModel.getWalls();
+        gameModel.checkGameOver();
+        gameModel.makeSnakeStep();
+        gameView.updateView(body, foods, score, remainingScore, direction, walls);
+        gameModel.checkFoodEating();
+        if (gameModel.gameOver && gameModel.winGame) {
+            gameView.showGameOverWindow(score, "WIN");
+            return;
+        }
+        if (gameModel.gameOver) {
+            gameView.showGameOverWindow(score, "LOSE");
+        }
     }
 }

@@ -1,4 +1,4 @@
-package ru.nsu.ntatarinov;
+package ru.nsu.ntatarinov.view;
 
 import java.awt.Point;
 import java.util.LinkedList;

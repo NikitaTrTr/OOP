@@ -3,6 +3,7 @@ package ru.nsu.ntatarinov;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.nsu.ntatarinov.model.SnakeGameModel;
 
 /**
  * Snake tests.

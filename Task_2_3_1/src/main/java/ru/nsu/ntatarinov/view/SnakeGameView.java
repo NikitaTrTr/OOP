@@ -1,4 +1,4 @@
-package ru.nsu.ntatarinov;
+package ru.nsu.ntatarinov.view;
 
 import java.awt.Point;
 import java.io.InputStream;
@@ -7,6 +7,7 @@ import java.util.List;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import ru.nsu.ntatarinov.controller.SnakeGameController;
 
 /**
  * Game view module.
