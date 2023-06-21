@@ -1,28 +1,30 @@
-package ru.nsu.ntatarinov;
+package ru.nsu.ntatarinov.model;
 
 
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import ru.nsu.ntatarinov.view.SnakeBody;
 
 /**
  * Model of a Snake game.
  */
 public class SnakeGameModel {
 
-    private SnakeGameView view;
     public SnakeBody snakeBody;
     private final int rows;
     private final int columns;
     private final int winLength;
     private final int numberOfFood;
-
     public boolean gameOver = false;
+    public boolean winGame;
     public boolean isPause = false;
     private final List<Point> foods = new ArrayList<>();
     private final List<Point> walls;
     private int score = 0;
+
 
     /**
      * Constructor of a game model module.
@@ -48,10 +50,6 @@ public class SnakeGameModel {
         }
     }
 
-    public void setGameView(SnakeGameView view) {
-        this.view = view;
-    }
-
     private Point checkCollisionWithSnake(Point wallCell) {
         if (wallCell.equals(snakeBody.head)) {
             throw new IllegalArgumentException("Snake spawns in a wall. Change walls' position");
@@ -71,15 +69,32 @@ public class SnakeGameModel {
         foods.add(food);
     }
 
-    /**
-     * Make a step of game field.
-     */
-    public void makeGameStep() {
-        checkGameOver();
+    public LinkedList<Point> getSnakeBody() {
+        return snakeBody.body;
+    }
+
+    public List<Point> getFoods() {
+        return foods;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getRemainingScore() {
+        return winLength - score;
+    }
+
+    public int getDirection() {
+        return snakeBody.currentDirection;
+    }
+
+    public List<Point> getWalls() {
+        return walls;
+    }
+
+    public void makeSnakeStep() {
         this.snakeBody.makeSnakeStep();
-        view.updateView(snakeBody.body, foods, score, winLength - score, snakeBody.currentDirection,
-            walls);
-        checkFoodEating();
     }
 
     /**
@@ -98,9 +113,12 @@ public class SnakeGameModel {
         }
     }
 
-    private void checkGameOver() {
+    /**
+     * Checks if game is over.
+     */
+    public void checkGameOver() {
         if (snakeBody.body.size() == winLength + 1) {
-            view.showGameOverWindow(score, "WIN");
+            winGame = true;
             gameOver = true;
             return;
         }
@@ -108,19 +126,19 @@ public class SnakeGameModel {
         for (int i = 1; i < snakeBody.body.size(); i++) {
             if (head.equals(snakeBody.body.get(i))) {
                 gameOver = true;
-                view.showGameOverWindow(score, "LOSE");
+                winGame = false;
                 return;
             }
         }
         if (head.x >= columns || head.x < 0 || head.y >= rows || head.y < 0) {
             gameOver = true;
-            view.showGameOverWindow(score, "LOSE");
+            winGame = false;
             return;
         }
         for (Point wallCell : walls) {
             if (head.equals(wallCell)) {
                 gameOver = true;
-                view.showGameOverWindow(score, "LOSE");
+                winGame = false;
                 return;
             }
         }
@@ -132,7 +150,6 @@ public class SnakeGameModel {
      */
     public void resetGame() {
         snakeBody.resetSnakeBody();
-        view.clear();
         gameOver = false;
         score = 0;
     }

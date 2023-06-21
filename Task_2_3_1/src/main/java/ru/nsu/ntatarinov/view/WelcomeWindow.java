@@ -1,4 +1,4 @@
-package ru.nsu.ntatarinov;
+package ru.nsu.ntatarinov.view;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,6 +13,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import ru.nsu.ntatarinov.controller.SnakeGameController;
 
 /**
  * Welcome screen class.

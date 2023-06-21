@@ -1,4 +1,4 @@
-package ru.nsu.ntatarinov;
+package ru.nsu.ntatarinov.view;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,6 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import ru.nsu.ntatarinov.controller.SnakeGameController;
 
 /**
  * Game over screen.

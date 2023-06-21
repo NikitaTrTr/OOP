@@ -4,13 +4,15 @@ import com.google.gson.Gson;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import ru.nsu.ntatarinov.controller.SnakeGameController;
+import ru.nsu.ntatarinov.model.SnakeGameModel;
+import ru.nsu.ntatarinov.view.SnakeGameView;
 
 /**
  * Main class for Snake game.
@@ -45,7 +47,6 @@ public class SnakeGameMain extends Application {
             snakeGameController);
         this.snakeGameController.setController(snakeGameView, snakeGameModel, this,
             primaryStage);
-        this.snakeGameModel.setGameView(snakeGameView);
         primaryStage.show();
     }
 
@@ -79,7 +80,7 @@ public class SnakeGameMain extends Application {
      * One step of a game.
      */
     public void mainGameCycle() {
-        snakeGameModel.makeGameStep();
+        snakeGameController.makeGameStep();
         if (snakeGameModel.gameOver) {
             this.timeline.stop();
         }

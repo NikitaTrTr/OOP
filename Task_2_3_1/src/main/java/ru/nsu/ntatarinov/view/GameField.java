@@ -1,4 +1,4 @@
-package ru.nsu.ntatarinov;
+package ru.nsu.ntatarinov.view;
 
 import java.awt.Point;
 import java.util.LinkedList;
@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import ru.nsu.ntatarinov.controller.SnakeGameController;
 
 /**
  * Game field class.
